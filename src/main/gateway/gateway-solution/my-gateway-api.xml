@@ -1,0 +1,28 @@
+<l7:ServiceDetail xmlns:l7="http://ns.l7tech.com/2010/04/gateway-management">
+    <l7:Enabled>true</l7:Enabled>
+    <l7:ServiceMappings>
+        <l7:HttpMapping>
+            <l7:UrlPattern>/example</l7:UrlPattern>
+            <l7:Verbs>
+                <l7:Verb>GET</l7:Verb>
+                <l7:Verb>POST</l7:Verb>
+                <l7:Verb>PUT</l7:Verb>
+                <l7:Verb>DELETE</l7:Verb>
+            </l7:Verbs>
+        </l7:HttpMapping>
+    </l7:ServiceMappings>
+    <l7:Properties>
+        <l7:Property key="internal">
+            <l7:BooleanValue>false</l7:BooleanValue>
+        </l7:Property>
+        <l7:Property key="soap">
+            <l7:BooleanValue>false</l7:BooleanValue>
+        </l7:Property>
+        <l7:Property key="tracingEnabled">
+            <l7:BooleanValue>false</l7:BooleanValue>
+        </l7:Property>
+        <l7:Property key="wssProcessingEnabled">
+            <l7:BooleanValue>false</l7:BooleanValue>
+        </l7:Property>
+    </l7:Properties>
+</l7:ServiceDetail>
