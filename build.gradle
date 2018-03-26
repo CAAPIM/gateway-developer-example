@@ -5,7 +5,8 @@
  */
 
 plugins {
-    id "com.ca.apim.gateway.gateway-developer-plugin" version "0.1.00"
+    id "com.ca.apim.gateway.gateway-developer-plugin" version "0.2.00"
+    id "com.ca.apim.gateway.gateway-export-plugin" version "0.2.00"
 }
 
 group 'com.ca'

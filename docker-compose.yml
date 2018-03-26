@@ -14,7 +14,7 @@ services:
       - "8000:8000"
     volumes:
       - /opt/SecureSpan/Gateway/node/default/etc/bootstrap/services/restman
-      - ./build/gateway/zipped.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/zipped.req.bundle
+      - ./build/gateway/gateway-developer-example.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/gateway-developer-example.req.bundle
     secrets:
       - source: license
         target: /opt/SecureSpan/Gateway/node/default/etc/bootstrap/license/license.xml
