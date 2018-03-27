@@ -4,5 +4,8 @@
             <L7p:Base64ResponseBody stringValue="ewogICAieW91LXNheSI6IFsiSGVsbG8iLCAiR2F0ZXdheSJdLAogICAiZ2F0ZXdheS1zYXlzIjogWyJIZWxsbyIsICJVc2VyIl0KfQ=="/>
             <L7p:ResponseContentType stringValue="text/json; charset=UTF-8"/>
         </L7p:HardcodedResponse>
+        <L7p:Include>
+            <L7p:PolicyGuid policyPath="gateway-solution/example-policy-include.xml"/>
+        </L7p:Include>
     </wsp:All>
 </wsp:Policy>
