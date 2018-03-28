@@ -1,0 +1,7 @@
+gateway-solution/includedPolicy.xml:
+  arguments:
+  - name: hello
+    type: string
+  results:
+  - name: goodbye
+    type: string

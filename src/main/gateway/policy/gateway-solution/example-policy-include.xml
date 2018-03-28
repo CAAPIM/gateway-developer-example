@@ -1,10 +1,5 @@
 <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
     <wsp:All wsp:Usage="Required">
-        <L7p:CommentAssertion>
-            <L7p:Comment stringValue="Policy Fragment: example-policy"/>
-        </L7p:CommentAssertion>
-        <L7p:Include>
-            <L7p:PolicyGuid policyPath="gateway-solution/includedPolicy.xml"/>
-        </L7p:Include>
+        <L7p:Encapsulated policyPath="gateway-solution/includedPolicy.xml"/>
     </wsp:All>
 </wsp:Policy>
