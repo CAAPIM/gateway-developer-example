@@ -5,12 +5,12 @@
  */
 
 plugins {
-    id "com.ca.apim.gateway.gateway-developer-plugin" version "0.3.00"
-    id "com.ca.apim.gateway.gateway-export-plugin" version "0.3.00"
+    id "com.ca.apim.gateway.gateway-developer-plugin" version "0.4.00"
+    id "com.ca.apim.gateway.gateway-export-plugin" version "0.4.00"
 }
 
 group 'com.ca.apim.gateway'
-version '0.3.00'
+version '0.4.00'
 
 
 GatewayConnection {
