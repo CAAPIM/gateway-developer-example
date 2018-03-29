@@ -1,7 +1,7 @@
 <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
     <wsp:All wsp:Usage="Required">
         <L7p:HardcodedResponse>
-            <L7p:Base64ResponseBody stringValue="ewogICAieW91LXNheSI6IFsiSGVsbG8iLCAiR2F0ZXdheSJdLAogICAiZ2F0ZXdheS1zYXlzIjogWyJIZWxsbyIsICJVc2VyIl0sCiAgICJteS1nbG9iYWwtcHJvcGVydHkiOiAiJHtnYXRld2F5Lm15LWdsb2JhbC1wcm9wZXJ0eX0iCn0="/>
+            <L7p:Base64ResponseBody stringValue="ewogICAieW91LXNheSI6IFsiSGVsbG8iLCAiR2F0ZXdheSJdLAogICAiZ2F0ZXdheS1zYXlzIjogWyJIZWxsbyIsICJVc2VyIl0sCiAgICJteS1nbG9iYWwtcHJvcGVydHkiOiAiJHtnYXRld2F5Lm15LWdsb2JhbC1wcm9wZXJ0eX0iCiAgICJhbm90aGVyLXByb3BlcnR5IjogIiR7Z2F0ZXdheS5hbm90aGVyLXByb3BlcnR5fSIKfQ=="/>
             <L7p:ResponseContentType stringValue="text/json; charset=UTF-8"/>
         </L7p:HardcodedResponse>
         <L7p:Include>
