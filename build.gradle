@@ -9,8 +9,8 @@ plugins {
     id "com.ca.apim.gateway.gateway-export-plugin" version "0.3.00"
 }
 
-group 'com.ca'
-version '1.2.3-SNAPSHOT'
+group 'com.ca.apim.gateway'
+version '0.3.00'
 
 
 GatewayConnection {
