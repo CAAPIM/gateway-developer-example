@@ -6,7 +6,7 @@ gateway-solution/my-gateway-api.xml:
   - "GET"
   - "PUT"
 gateway-solution/my-gateway-apis.xml:
-  url: "/example"
+  url: "/example1"
   httpMethods:
   - "DELETE"
   - "POST"
