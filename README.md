@@ -1,3 +1,6 @@
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/ca-api-Gateway/Gateway-developer-plugin.svg?columns=all)](https://waffle.io/ca-api-Gateway/Gateway-developer-plugin)
+[![Build Status](https://travis-ci.com/ca-api-gateway-examples/gateway-developer-example.svg?branch=master)](https://travis-ci.com/ca-api-gateway-examples/gateway-developer-example)
+
 # About
 This is an example repository that demonstrates how to use the [CA API Gateway Developer Plugin][gateway-developer-plugin].
 
