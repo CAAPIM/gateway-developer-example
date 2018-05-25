@@ -14,7 +14,8 @@ services:
       - "8000:8000"
     volumes:
       - /opt/SecureSpan/Gateway/node/default/etc/bootstrap/services/restman
-      - ./build/gateway/gateway-developer-example.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/gateway-developer-example.req.bundle
+      - ./lib/my-bundle-1.0.00.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/1-my-bundle-1.0.00.req.bundle
+      - ./build/gateway/gateway-developer-example.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/2-gateway-developer-example.req.bundle
     secrets:
       - source: license
         target: /opt/SecureSpan/Gateway/node/default/etc/bootstrap/license/license.xml

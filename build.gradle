@@ -5,15 +5,25 @@
  */
 
 plugins {
-    id "com.ca.apim.gateway.gateway-developer-plugin" version "0.4.00"
-    id "com.ca.apim.gateway.gateway-export-plugin" version "0.4.00"
+    id "com.ca.apim.gateway.gateway-developer-plugin" version "0.5.00"
+    id "com.ca.apim.gateway.gateway-export-plugin" version "0.5.00"
 }
 
 group 'com.ca.apim.gateway'
-version '0.4.00'
+version '0.5.00'
 
 
 GatewayConnection {
     url = 'https://localhost:8443/restman'
     folderPath = '/gateway-solution'
+}
+
+repositories {
+    flatDir {
+        dirs "lib"
+    }
+}
+
+dependencies {
+    bundle group: 'my-bundle', name: 'my-bundle', version: '1.0.00', ext: 'bundle'
 }
