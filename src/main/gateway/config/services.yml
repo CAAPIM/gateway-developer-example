@@ -1,5 +1,5 @@
 gateway-solution/another-service.xml:
-  url: "/example"
+  url: "/another-service-example"
   httpMethods:
   - "DELETE"
   - "POST"

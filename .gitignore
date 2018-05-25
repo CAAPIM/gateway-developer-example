@@ -9,6 +9,7 @@
 /build/
 /out/
 .DS_Store
+.java-version
 
 # Ignore the license out so that it is not accidentally committed.
 /license.xml
