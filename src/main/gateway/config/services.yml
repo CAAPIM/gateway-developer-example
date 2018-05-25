@@ -1,11 +1,11 @@
-gateway-solution/my-gateway-api.xml:
+gateway-solution/another-service.xml:
   url: "/example"
   httpMethods:
   - "DELETE"
   - "POST"
   - "GET"
   - "PUT"
-gateway-solution/my-gateway-apis.xml:
+gateway-solution/my-gateway-api.xml:
   url: "/example"
   httpMethods:
   - "DELETE"

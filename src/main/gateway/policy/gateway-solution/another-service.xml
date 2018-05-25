@@ -9,5 +9,8 @@
             </L7p:ResponseBody>
             <L7p:ResponseContentType stringValue="text/json; charset=UTF-8"/>
         </L7p:HardcodedResponse>
+        <L7p:Include>
+            <L7p:PolicyGuid policyPath="gateway-solution/sub-folder/policyInFolder.xml"/>
+        </L7p:Include>
     </wsp:All>
 </wsp:Policy>
