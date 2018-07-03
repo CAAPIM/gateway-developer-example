@@ -11,7 +11,7 @@ In order to package the solution into something that can be applied to the CA AP
 
 ```gradle build```
 
-This takes the solution that is contained in the `src/main/gateway` folder and packages it into a bundle at `build/gateway/zipped.bundle`
+This takes the solution that is contained in the `src/main/gateway` folder and packages it into a bundle at `build/gateway/gateway-developer-example.bundle`
 
 ## Running the Solution
 In order to run the solution you need to do the following:
