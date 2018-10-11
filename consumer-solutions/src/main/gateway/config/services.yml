@@ -1,0 +1,9 @@
+consumer-solutions/pets/listPets:
+  url: "/gateway-pets"
+  policy: "consumer-solutions/pets/listPets.xml"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}

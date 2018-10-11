@@ -1,0 +1,9 @@
+business-integrations/b2b-services:
+  url: "/b2b/*"
+  policy: "business-integrations/b2b-services.xml"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}

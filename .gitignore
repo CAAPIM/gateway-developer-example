@@ -3,10 +3,10 @@
 # of the MIT license.  See the LICENSE file for details.
 
 # Root files to ignore
-/.gradle/
+.gradle/
 /.idea/
 /*.iml
-/build/
+build/
 /out/
 .DS_Store
 .java-version

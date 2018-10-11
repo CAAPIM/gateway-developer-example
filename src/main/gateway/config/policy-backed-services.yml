@@ -1,5 +1,0 @@
-background-task-service:
-  interfaceName: "com.l7tech.objectmodel.polback.BackgroundTask"
-  operations:
-  - policy: "gateway-solution/policy-backed-service/a-policy-backed-service.xml"
-    operationName: "run"

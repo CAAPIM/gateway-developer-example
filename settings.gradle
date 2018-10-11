@@ -6,3 +6,4 @@
 
 rootProject.name = 'gateway-developer-example'
 
+include 'common-services', 'business-integrations', 'consumer-solutions', 'deployment'

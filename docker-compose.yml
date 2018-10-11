@@ -5,17 +5,15 @@
 version: '3.4'
 services:
   gateway-dev:
-    hostname: gateway-dev
-    image: caapim/gateway:9.3.00
+    hostname: localhost
+    image: caapim/gateway:9.4.00
     ports:
       - "8080:8080"
       - "8443:8443"
-      - "9443:9443"
       - "8000:8000"
     volumes:
       - /opt/SecureSpan/Gateway/node/default/etc/bootstrap/services/restman
-      - ./lib/my-bundle-1.0.00.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/1-my-bundle-1.0.00.req.bundle
-      - ./build/gateway/gateway-developer-example.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/2-gateway-developer-example.req.bundle
+      - ./deployment/build/gateway/deployment-0.6.0.gw7:/opt/docker/rc.d/deployment.gw7
     secrets:
       - source: license
         target: /opt/SecureSpan/Gateway/node/default/etc/bootstrap/license/license.xml
@@ -24,6 +22,18 @@ services:
       SSG_ADMIN_USERNAME: "admin"
       SSG_ADMIN_PASSWORD: "password"
       EXTRA_JAVA_ARGS: "-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"
+      ENV.PASSWORD.pets-db-password: "temp"
+      ENV.JDBC_CONNECTION.pets-db: '{
+                                      "driverClass": "com.l7tech.jdbc.mysql.MySQLDriver",
+                                      "jdbcUrl": "TBD",
+                                      "user": "admin",
+                                      "passwordRef": "pets-db-password",
+                                      "minimumPoolSize": 3,
+                                      "maximumPoolSize": 15,
+                                      "properties": {
+                                        "EnableCancelTimeout": "true"
+                                      }
+                                    }'
 secrets:
   license:
     file: ./docker/license.xml
