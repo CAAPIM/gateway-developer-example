@@ -9,34 +9,23 @@ This is an example repository that demonstrates how to use the [CA API Gateway D
 ## Building the Solution
 In order to package the solution into something that can be applied to the CA API Gateway run the following Gradle command:
 
-```gradle build```
-
-This takes the solution that is contained in the `src/main/gateway` folder and packages it into a bundle at `build/gateway/gateway-developer-example.bundle`
+```./gradlew build```
 
 ## Running the Solution
 In order to run the solution you need to do the following:
 
-1) Put a valid gateway license in the `docker` folder. The license file should be called `license.xml`
-2) Make sure you have already built the solution by running `gradle build`
+1) Put a valid gateway license in the `docker` folder. The license file should be called `license.xml`. For information on getting a license see the [License Section from the Gateway Container readme](https://hub.docker.com/r/caapim/gateway/).
+2) Make sure you have already built the solution by running `./gradlew build`
 3) Start the Gateway Container by running: `docker-compose up`
 
-After the container is up and running you can connect the CA API Gateway Policy Manager to it and/or call the example API at `/example`
+After the container is up and running you can connect the CA API Gateway Policy Manager to it.
 
 ## Exporting Updates
-If you connect to the running gateway with the CA API Gateway Policy Manager and make changes to the services you can export those changes by running:
+If you connect to the running gateway with the CA API Gateway Policy Manager and make changes to the services and policies you can export those changes by running:
 
-```gradle export```
+```./gradlew export```
 
-This will export the changes to the `src/main/gateway` folder. Note that your local edits will be overridden by changes from the gateway
-
-# About the Example Solution
-The solution that is checked into this repository is contains a single folder and service. The service exposes `/example` and will respond with the following JSON for any HTTP(S) request:
-```json
-{
-   "you-say": ["Hello", "Gateway"],
-   "gateway-says": ["Hello", "User"]
-}
-```
+This will export the changes to the various project folders. Note that your local edits will be overridden by changes from the gateway
 
 # Giving Back
 ## How You Can Contribute
