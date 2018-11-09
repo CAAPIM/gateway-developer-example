@@ -1,5 +1,5 @@
 createPet:
-  policy: "common/entities/createPet.xml"
+  policy: "common/entities/createPet"
   arguments:
   - name: "age"
     type: "string"

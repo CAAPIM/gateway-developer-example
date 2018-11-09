@@ -2,7 +2,7 @@
     <wsp:All wsp:Usage="Required">
         <L7p:Include>
             <L7p:Enabled booleanValue="false"/>
-            <L7p:PolicyGuid policyPath="common/auth/basic-auth.xml"/>
+            <L7p:PolicyGuid policyPath="common/auth/basic-auth"/>
         </L7p:Include>
         <L7p:SetVariable>
             <L7p:Expression><![CDATA[[]]></L7p:Expression>
