@@ -3,7 +3,7 @@
         <L7p:SslAssertion/>
         <L7p:HttpBasic/>
         <L7p:Authentication>
-            <L7p:IdentityProviderOid goidValue="23817331029fb400e343544ef9a22c11"/>
+            <L7p:IdentityProviderName stringValue="Internal Identity Provider"/>
         </L7p:Authentication>
     </wsp:All>
 </wsp:Policy>

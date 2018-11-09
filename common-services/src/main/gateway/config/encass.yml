@@ -1,12 +1,15 @@
 createPet:
-  policy: "common/entities/createPet.xml"
+  policy: "common/entities/createPet"
   arguments:
   - name: "age"
     type: "string"
+    requireExplicit: false
   - name: "name"
     type: "string"
+    requireExplicit: false
   - name: "type"
     type: "string"
+    requireExplicit: false
   results:
   - name: "pet-json"
     type: "string"
