@@ -5,7 +5,6 @@
  */
 
 GatewayConnection {
-    folderPath = '/consumer-solutions'
 }
 
 dependencies {

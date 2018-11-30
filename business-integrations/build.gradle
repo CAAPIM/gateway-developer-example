@@ -5,7 +5,6 @@
  */
 
 GatewayConnection {
-    folderPath = '/business-integrations'
 }
 
 dependencies {
