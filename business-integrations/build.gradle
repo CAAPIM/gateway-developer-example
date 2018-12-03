@@ -4,7 +4,7 @@
  *  of the MIT license.  See the LICENSE file for details.
  */
 
-GatewayConnection {
+GatewayExportConfig {
     folderPath = '/business-integrations'
 }
 

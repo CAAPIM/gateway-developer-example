@@ -11,8 +11,9 @@ buildscript {
         }
     }
     dependencies {
-        classpath "com.ca.apim.gateway:gateway-developer-plugin:0.6.32"
-        classpath "com.ca.apim.gateway:gateway-export-plugin:0.6.32"
+        // "+" will always pull the latest available
+        classpath "com.ca.apim.gateway:gateway-developer-plugin:0.6.+"
+        classpath "com.ca.apim.gateway:gateway-export-plugin:0.6.+"
     }
 }
 
