@@ -8,3 +8,109 @@ dependencies {
     bundle project(':business-integrations')
     bundle project(':consumer-solutions')
 }
+
+// configuration for the environment bundle generation
+// profile 'test'
+project.ext.set ("testEnvironmentInfo", ['PASSWORD.pets-db-password': 'temp', "JDBC_CONNECTION.pets-db": "{\n" +
+        "\"driverClass\": \"com.l7tech.jdbc.mysql.MySQLDriver\",\n" +
+        "\"jdbcUrl\": \"jdbc:mysql://localhost:3306/test\",\n" +
+        "\"user\": \"admin\",\n" +
+        "\"passwordRef\": \"pets-db-password\",\n" +
+        "\"minimumPoolSize\": 3,\n" +
+        "\"maximumPoolSize\": 15,\n" +
+        "\"properties\": {\n" +
+        "   \"EnableCancelTimeout\": \"true\"\n" +
+        "}\n" +
+        "}"])
+project.ext.set("testGatewayURL", "https://localhost:8443")
+project.ext.set("testGatewayUsername", "admin")
+project.ext.set("testGatewayPassword", "password")
+
+// profile 'production'
+project.ext.set ("productionEnvironmentInfo", ['PASSWORD.pets-db-password': '14Uzx2(C.>z196I', "ENV.JDBC_CONNECTION.pets-db": "{\n" +
+        "\"driverClass\": \"com.l7tech.jdbc.mysql.MySQLDriver\",\n" +
+        "\"jdbcUrl\": \"jdbc:mysql://database.production.com:3306/production\",\n" +
+        "\"user\": \"admin\",\n" +
+        "\"passwordRef\": \"pets-db-password\",\n" +
+        "\"minimumPoolSize\": 3,\n" +
+        "\"maximumPoolSize\": 15,\n" +
+        "\"properties\": {\n" +
+        "   \"EnableCancelTimeout\": \"true\"\n" +
+        " }\n" +
+        "}"])
+project.ext.set("productionGatewayURL", "https://gateway.production.com:8443")
+project.ext.set("productionGatewayUsername", "admin")
+project.ext.set("productionGatewayPassword", "password")
+
+GatewaySourceConfig {
+    // pick the chosen environment type, or if null use test by default
+    def environmentType = project.parent.properties['environmentType'] ?: 'test'
+    // select the environment config for the specified environment
+    environmentConfig = project.ext."${environmentType}EnvironmentInfo"
+    // also setting a specific directory for environment bundle work
+    builtEnvironmentBundleDir = new File(project.buildDir, "deployment")
+}
+
+task untarPackage(type: Copy) {
+    description = "Explode the GW7 package into single bundle files to allow detemplatizing and generation of the environment bundle"
+    dependsOn 'package-gw7'
+
+    // pick the result of the package-gw7 task and untar it, filtering only bundle files
+    from (tarTree(resources.gzip(tasks['package-gw7'].into))) {
+        include "**/*.bundle"
+    }
+    // and put everything into the environment bundle working dir
+    into project.extensions["GatewaySourceConfig"].builtEnvironmentBundleDir
+
+    // Flatten the hierarchy by setting the path of all files to their respective basename
+    eachFile {
+        path = name
+    }
+}
+
+// set up the environment bundle task to depends on the untar task, so it runs on the proper deployment bundles
+tasks['build-environment-bundle'].dependsOn untarPackage
+
+// common function to call the target GW and upload the bundle
+project.ext.installBundle = { bundleName, url, username, password ->
+    logger.info("Installing $bundleName")
+    new URL("$url/restman/1.0/bundle").openConnection().with {
+        requestMethod = 'PUT'
+        doOutput = true
+        setRequestProperty('Content-Type', 'application/xml')
+        setRequestProperty("Authorization", "Basic " + Base64.encoder.encodeToString("$username:$password".bytes))
+        outputStream.write(new File(new File(project.buildDir, "deployment"), bundleName).bytes)
+
+        def response
+        try {
+            response = inputStream.text
+            logger.debug(response)
+        } catch (Exception e) {
+            logger.quiet(e.getMessage(), e)
+        }
+
+        if (responseCode != 200) {
+            throw new RuntimeException("Install bundle failed. See above for details.")
+        }
+    }
+}
+
+task installSolution {
+    description = "Deploy the solution composed by business-integrations and consumer-solutions to a running Gateway"
+    dependsOn "build-environment-bundle"
+
+    doLast {
+        // select the environment type and pick the GW information for the specified environment
+        def environmentType = project.parent.properties['environmentType'] ?: 'test'
+        def url = project.ext."${environmentType}GatewayURL"
+        def username = project.ext."${environmentType}GatewayUsername"
+        def password = project.ext."${environmentType}GatewayPassword"
+
+        // install the environment bundle
+        project.installBundle("$project.name-$project.version-environment.bundle", url, username, password)
+        // install the deployment bundles
+        new File(project.buildDir, "deployment").list().toList().findAll { f -> f.startsWith("_") }.sort().each { bundle ->
+            project.installBundle(bundle, url, username, password)
+        }
+    }
+}
