@@ -3,13 +3,13 @@ createPet:
   arguments:
   - name: "age"
     type: "string"
-    requireExplicit: false
+    requireExplicit: true
   - name: "name"
     type: "string"
-    requireExplicit: false
+    requireExplicit: true
   - name: "type"
     type: "string"
-    requireExplicit: false
+    requireExplicit: true
   results:
   - name: "pet-json"
     type: "string"
