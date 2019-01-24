@@ -6,9 +6,6 @@
 
 GatewayExportConfig {
     folderPath = '/common'
-}
-
-GatewayExportConfig {
     exportEntities = [
         jdbcConnections:[ "pets-db" ],
     ]

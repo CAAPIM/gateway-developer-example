@@ -9,6 +9,8 @@ dependencies {
     bundle project(':consumer-solutions')
 }
 
+// Configurations below are designed to be used with non-ephemeral gateways
+
 // configuration for the environment bundle generation
 // profile 'test'
 project.ext.set ("testEnvironmentInfo", ['PASSWORD.pets-db-password': 'temp', "JDBC_CONNECTION.pets-db": "{\n" +
@@ -21,8 +23,10 @@ project.ext.set ("testEnvironmentInfo", ['PASSWORD.pets-db-password': 'temp', "J
         "\"properties\": {\n" +
         "   \"EnableCancelTimeout\": \"true\"\n" +
         "}\n" +
-        "}"])
-project.ext.set("testGatewayURL", "https://localhost:8443")
+        "}",
+      "PROPERTY.gateway.log.levels":  "com.l7tech.server.policy.level = FINEST\n" +
+              "com.hazelcast.level = OFF"])
+project.ext.set("testGatewayURL", "https://joaoborges-laptop:8443")
 project.ext.set("testGatewayUsername", "admin")
 project.ext.set("testGatewayPassword", "password")
 
@@ -37,11 +41,29 @@ project.ext.set ("productionEnvironmentInfo", ['PASSWORD.pets-db-password': '14U
         "\"properties\": {\n" +
         "   \"EnableCancelTimeout\": \"true\"\n" +
         " }\n" +
-        "}"])
+        "}",
+           "PROPERTY.gateway.log.levels":  "com.l7tech.server.policy.level = WARNING\n" +
+                   "com.hazelcast.level = WARNING"])
 project.ext.set("productionGatewayURL", "https://gateway.production.com:8443")
 project.ext.set("productionGatewayUsername", "admin")
 project.ext.set("productionGatewayPassword", "password")
 
+// GatewayConnection stores the information on how to access the running gateway
+// This is being done for a single GW instance, in a cluster, GWs will be sharing DB and making changes into a single one
+// will automatically replicate to the others.
+// Here we have the URL, username and password to access restman services.
+// This info is being loaded from previously configured values, choosing the environment profile using a property.
+// This can be specified with -PenvironmentType=xxx when running ./gradlew.
+GatewayConnection {
+    // pick the chosen environment type, or if null use test by default
+    def environmentType = project.parent.properties['environmentType'] ?: 'test'
+    url = project.ext."${environmentType}GatewayURL"
+    userName = project.ext."${environmentType}GatewayUsername"
+    userPass = project.ext."${environmentType}GatewayPassword"
+}
+
+// This configuration is also chosen using profile property, and relates to which map of environment values
+// will be used to provide the environment bundles to the Gateway.
 GatewaySourceConfig {
     // pick the chosen environment type, or if null use test by default
     def environmentType = project.parent.properties['environmentType'] ?: 'test'
@@ -51,66 +73,30 @@ GatewaySourceConfig {
     builtEnvironmentBundleDir = new File(project.buildDir, "deployment")
 }
 
-task untarPackage(type: Copy) {
-    description = "Explode the GW7 package into single bundle files to allow detemplatizing and generation of the environment bundle"
-    dependsOn 'package-gw7'
+// The section below configures the tasks related to building and deploying the bundles.
+// Two gradle tasks are involved in this process: 'build-full-bundle' and 'import-bundle'.
 
-    // pick the result of the package-gw7 task and untar it, filtering only bundle files
-    from (tarTree(resources.gzip(tasks['package-gw7'].into))) {
-        include "**/*.bundle"
-    }
-    // and put everything into the environment bundle working dir
-    into project.extensions["GatewaySourceConfig"].builtEnvironmentBundleDir
+// The first one is the task that will grab all behavior configuration bundles (called 'deployment' bundles)
+// and generate an environment configuration bundle using information from the specified environment profile.
+// Then, all bundles get merged and exported to a file (which is represented by the 'outputBundle' property)
 
-    // Flatten the hierarchy by setting the path of all files to their respective basename
-    eachFile {
-        path = name
-    }
+// The second one is the task that will grab any bundle and upload to the Gateway, using restman endpoint configurations 
+// specified above.
+// To achieve the required result, we set the import-bundle task to install the bundle that is the output 
+// of the build-full-bundle task. This will install the solution merged bundle, containing the environment properties,
+// and the behaviour configurations.
+// This is achieved by adding the 'dependsOn' declaration below, and setting the 'importFile' of the task to look into
+// the 'outputBundle' of the other task.
+tasks.getByName("import-bundle").dependsOn("build-full-bundle")
+project.afterEvaluate {
+    tasks.getByName("import-bundle").importFile = tasks.getByName("build-full-bundle").outputBundle
 }
 
-// set up the environment bundle task to depends on the untar task, so it runs on the proper deployment bundles
-tasks['build-environment-bundle'].dependsOn untarPackage
-
-// common function to call the target GW and upload the bundle
-project.ext.installBundle = { bundleName, url, username, password ->
-    logger.info("Installing $bundleName")
-    new URL("$url/restman/1.0/bundle").openConnection().with {
-        requestMethod = 'PUT'
-        doOutput = true
-        setRequestProperty('Content-Type', 'application/xml')
-        setRequestProperty("Authorization", "Basic " + Base64.encoder.encodeToString("$username:$password".bytes))
-        outputStream.write(new File(new File(project.buildDir, "deployment"), bundleName).bytes)
-
-        def response
-        try {
-            response = inputStream.text
-            logger.debug(response)
-        } catch (Exception e) {
-            logger.quiet(e.getMessage(), e)
-        }
-
-        if (responseCode != 200) {
-            throw new RuntimeException("Install bundle failed. See above for details.")
-        }
-    }
-}
-
-task installSolution {
-    description = "Deploy the solution composed by business-integrations and consumer-solutions to a running Gateway"
-    dependsOn "build-environment-bundle"
-
-    doLast {
-        // select the environment type and pick the GW information for the specified environment
-        def environmentType = project.parent.properties['environmentType'] ?: 'test'
-        def url = project.ext."${environmentType}GatewayURL"
-        def username = project.ext."${environmentType}GatewayUsername"
-        def password = project.ext."${environmentType}GatewayPassword"
-
-        // install the environment bundle
-        project.installBundle("$project.name-$project.version-environment.bundle", url, username, password)
-        // install the deployment bundles
-        new File(project.buildDir, "deployment").list().toList().findAll { f -> f.startsWith("_") }.sort().each { bundle ->
-            project.installBundle(bundle, url, username, password)
-        }
-    }
-}
+// To try this whole solution, follow the steps below:
+/*
+ * - run ./gradlew build in the root folder of this project, which will generate the gw7 package for the deployment module
+ * - spin up the gateway using the docker-compose.yml file provided as sample in this repository
+ * - make changes locally to the configuration files, add/remove policies, provide more environment properties into this file.
+ * - run ./gradlew clean build :deployment:import-bundle which will run the tasks explained above and will deploy the results to the running gateway
+ * - using Gateway Policy Manager, check policies and configuration to see modifications were applied.
+ */
