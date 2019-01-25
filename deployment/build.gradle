@@ -8,3 +8,95 @@ dependencies {
     bundle project(':business-integrations')
     bundle project(':consumer-solutions')
 }
+
+// Configurations below are designed to be used with non-ephemeral gateways
+
+// configuration for the environment bundle generation
+// profile 'test'
+project.ext.set ("testEnvironmentInfo", ['PASSWORD.pets-db-password': 'temp', "JDBC_CONNECTION.pets-db": "{\n" +
+        "\"driverClass\": \"com.l7tech.jdbc.mysql.MySQLDriver\",\n" +
+        "\"jdbcUrl\": \"jdbc:mysql://localhost:3306/test\",\n" +
+        "\"user\": \"admin\",\n" +
+        "\"passwordRef\": \"pets-db-password\",\n" +
+        "\"minimumPoolSize\": 3,\n" +
+        "\"maximumPoolSize\": 15,\n" +
+        "\"properties\": {\n" +
+        "   \"EnableCancelTimeout\": \"true\"\n" +
+        "}\n" +
+        "}",
+      "PROPERTY.gateway.log.levels":  "com.l7tech.server.policy.level = FINEST\n" +
+              "com.hazelcast.level = OFF"])
+project.ext.set("testGatewayURL", "https://joaoborges-laptop:8443")
+project.ext.set("testGatewayUsername", "admin")
+project.ext.set("testGatewayPassword", "password")
+
+// profile 'production'
+project.ext.set ("productionEnvironmentInfo", ['PASSWORD.pets-db-password': '14Uzx2(C.>z196I', "ENV.JDBC_CONNECTION.pets-db": "{\n" +
+        "\"driverClass\": \"com.l7tech.jdbc.mysql.MySQLDriver\",\n" +
+        "\"jdbcUrl\": \"jdbc:mysql://database.production.com:3306/production\",\n" +
+        "\"user\": \"admin\",\n" +
+        "\"passwordRef\": \"pets-db-password\",\n" +
+        "\"minimumPoolSize\": 3,\n" +
+        "\"maximumPoolSize\": 15,\n" +
+        "\"properties\": {\n" +
+        "   \"EnableCancelTimeout\": \"true\"\n" +
+        " }\n" +
+        "}",
+           "PROPERTY.gateway.log.levels":  "com.l7tech.server.policy.level = WARNING\n" +
+                   "com.hazelcast.level = WARNING"])
+project.ext.set("productionGatewayURL", "https://gateway.production.com:8443")
+project.ext.set("productionGatewayUsername", "admin")
+project.ext.set("productionGatewayPassword", "password")
+
+// GatewayConnection stores the information on how to access the running gateway
+// This is being done for a single GW instance, in a cluster, GWs will be sharing DB and making changes into a single one
+// will automatically replicate to the others.
+// Here we have the URL, username and password to access restman services.
+// This info is being loaded from previously configured values, choosing the environment profile using a property.
+// This can be specified with -PenvironmentType=xxx when running ./gradlew.
+GatewayConnection {
+    // pick the chosen environment type, or if null use test by default
+    def environmentType = project.parent.properties['environmentType'] ?: 'test'
+    url = project.ext."${environmentType}GatewayURL"
+    userName = project.ext."${environmentType}GatewayUsername"
+    userPass = project.ext."${environmentType}GatewayPassword"
+}
+
+// This configuration is also chosen using profile property, and relates to which map of environment values
+// will be used to provide the environment bundles to the Gateway.
+GatewaySourceConfig {
+    // pick the chosen environment type, or if null use test by default
+    def environmentType = project.parent.properties['environmentType'] ?: 'test'
+    // select the environment config for the specified environment
+    environmentConfig = project.ext."${environmentType}EnvironmentInfo"
+    // also setting a specific directory for environment bundle work
+    builtEnvironmentBundleDir = new File(project.buildDir, "deployment")
+}
+
+// The section below configures the tasks related to building and deploying the bundles.
+// Two gradle tasks are involved in this process: 'build-full-bundle' and 'import-bundle'.
+
+// The first one is the task that will grab all behavior configuration bundles (called 'deployment' bundles)
+// and generate an environment configuration bundle using information from the specified environment profile.
+// Then, all bundles get merged and exported to a file (which is represented by the 'outputBundle' property)
+
+// The second one is the task that will grab any bundle and upload to the Gateway, using restman endpoint configurations 
+// specified above.
+// To achieve the required result, we set the import-bundle task to install the bundle that is the output 
+// of the build-full-bundle task. This will install the solution merged bundle, containing the environment properties,
+// and the behaviour configurations.
+// This is achieved by adding the 'dependsOn' declaration below, and setting the 'importFile' of the task to look into
+// the 'outputBundle' of the other task.
+tasks.getByName("import-bundle").dependsOn("build-full-bundle")
+project.afterEvaluate {
+    tasks.getByName("import-bundle").importFile = tasks.getByName("build-full-bundle").outputBundle
+}
+
+// To try this whole solution, follow the steps below:
+/*
+ * - run ./gradlew build in the root folder of this project, which will generate the gw7 package for the deployment module
+ * - spin up the gateway using the docker-compose.yml file provided as sample in this repository
+ * - make changes locally to the configuration files, add/remove policies, provide more environment properties into this file.
+ * - run ./gradlew clean build :deployment:import-bundle which will run the tasks explained above and will deploy the results to the running gateway
+ * - using Gateway Policy Manager, check policies and configuration to see modifications were applied.
+ */

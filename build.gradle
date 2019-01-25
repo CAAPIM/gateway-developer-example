@@ -18,19 +18,16 @@ buildscript {
 }
 
 subprojects {
+    apply plugin: 'com.ca.apim.gateway.gateway-developer-plugin'
+    apply plugin: 'com.ca.apim.gateway.gateway-export-plugin'
     if (!project.name.equals('deployment')) {
-        apply plugin: 'com.ca.apim.gateway.gateway-export-plugin'
-
         GatewayConnection {
             url = 'https://localhost:8443/restman'
         }
     }
 
-    apply plugin: 'com.ca.apim.gateway.gateway-developer-plugin'
-
     group 'com.ca.apim.gateway'
     version = '0.6.0'
-
 
     repositories {
         jcenter()
