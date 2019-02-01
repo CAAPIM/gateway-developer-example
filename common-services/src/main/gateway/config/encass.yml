@@ -13,3 +13,5 @@ createPet:
   results:
   - name: "pet-json"
     type: "string"
+  properties:
+    paletteFolder: "internalAssertions"
