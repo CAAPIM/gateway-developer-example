@@ -10,6 +10,7 @@ dependencies {
 }
 
 // Configurations below are designed to be used with non-ephemeral gateways
+apply plugin: 'com.ca.apim.gateway.gateway-import-plugin'
 
 // configuration for the environment bundle generation
 // profile 'test'
@@ -48,13 +49,13 @@ project.ext.set("productionGatewayURL", "https://gateway.production.com:8443")
 project.ext.set("productionGatewayUsername", "admin")
 project.ext.set("productionGatewayPassword", "password")
 
-// GatewayConnection stores the information on how to access the running gateway
+// GatewayImportConnection stores the information on how to access the running gateway
 // This is being done for a single GW instance, in a cluster, GWs will be sharing DB and making changes into a single one
 // will automatically replicate to the others.
 // Here we have the URL, username and password to access restman services.
 // This info is being loaded from previously configured values, choosing the environment profile using a property.
 // This can be specified with -PenvironmentType=xxx when running ./gradlew.
-GatewayConnection {
+GatewayImportConnection {
     // pick the chosen environment type, or if null use test by default
     def environmentType = project.parent.properties['environmentType'] ?: 'test'
     url = project.ext."${environmentType}GatewayURL"

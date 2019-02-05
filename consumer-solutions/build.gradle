@@ -10,4 +10,8 @@ GatewayExportConfig {
 
 dependencies {
     bundle project(':common-services')
+    bundle group: 'my-bundle', name: 'my-bundle', version: '1.0.00', ext: 'bundle'
+}
+
+repositories {
 }

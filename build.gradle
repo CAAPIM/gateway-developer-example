@@ -6,6 +6,7 @@
 
 buildscript {
     repositories {
+        mavenLocal()
         maven {
             url "https://plugins.gradle.org/m2/"
         }
@@ -14,22 +15,27 @@ buildscript {
         // "+" will always pull the latest available
         classpath "com.ca.apim.gateway:gateway-developer-plugin:0.6.+"
         classpath "com.ca.apim.gateway:gateway-export-plugin:0.6.+"
+        classpath "com.ca.apim.gateway:gateway-import-plugin:0.6.+"
     }
 }
 
 subprojects {
     apply plugin: 'com.ca.apim.gateway.gateway-developer-plugin'
-    apply plugin: 'com.ca.apim.gateway.gateway-export-plugin'
     if (!project.name.equals('deployment')) {
+        apply plugin: 'com.ca.apim.gateway.gateway-export-plugin'
         GatewayConnection {
             url = 'https://localhost:8443/restman'
         }
-    }
+    } 
 
     group 'com.ca.apim.gateway'
     version = '0.6.0'
 
     repositories {
+        mavenLocal()
+        flatDir {
+            dirs new File(project.parent.rootDir, "lib")
+        }
         jcenter()
     }
 }
