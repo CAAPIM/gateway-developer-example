@@ -5,7 +5,7 @@
  */
 
 GatewayExportConfig {
-    folderPath = '/consumer-solutions'
+    folderPath = '/my-bundle'
 }
 
 dependencies {

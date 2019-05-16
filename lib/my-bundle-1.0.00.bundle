@@ -20,6 +20,7 @@
                 </l7:Folder>
             </l7:Resource>
         </l7:Item>
+
         <l7:Item>
             <l7:Name>my-bundle-extension</l7:Name>
             <l7:Id>b24e8f6047856b780f8237ff36fc3713</l7:Id>
@@ -44,6 +45,55 @@
                     </l7:Resources>
                 </l7:Policy>
             </l7:Resource>
+        </l7:Item>
+        <l7:Item>
+        <l7:Name>testservice</l7:Name>
+        <l7:Id>c3e01a74e06baddb76b047986c280d02</l7:Id>
+        <l7:Type>SERVICE</l7:Type>
+        <l7:TimeStamp>2019-05-16T20:31:14.998Z</l7:TimeStamp>
+        <l7:Resource>
+        <l7:Service id="c3e01a74e06baddb76b047986c280d02" version="2">
+        <l7:ServiceDetail folderId="b24e8f6047856b780f8237ff36fc3714" id="c3e01a74e06baddb76b047986c280d02" version="2">
+        <l7:Name>testservice</l7:Name>
+        <l7:Enabled>true</l7:Enabled>
+        <l7:ServiceMappings>
+        <l7:HttpMapping>
+        <l7:UrlPattern>/testservice</l7:UrlPattern>
+        <l7:Verbs>
+        <l7:Verb>GET</l7:Verb>
+        <l7:Verb>POST</l7:Verb>
+        <l7:Verb>PUT</l7:Verb>
+        <l7:Verb>DELETE</l7:Verb>
+        </l7:Verbs>
+        </l7:HttpMapping>
+        </l7:ServiceMappings>
+        <l7:Properties>
+        <l7:Property key="internal">
+        <l7:BooleanValue>false</l7:BooleanValue>
+        </l7:Property>
+        <l7:Property key="policyRevision">
+        <l7:LongValue>2</l7:LongValue>
+        </l7:Property>
+        <l7:Property key="soap">
+        <l7:BooleanValue>false</l7:BooleanValue>
+        </l7:Property>
+        <l7:Property key="tracingEnabled">
+        <l7:BooleanValue>false</l7:BooleanValue>
+        </l7:Property>
+        <l7:Property key="wssProcessingEnabled">
+        <l7:BooleanValue>false</l7:BooleanValue>
+        </l7:Property>
+        </l7:Properties>
+        </l7:ServiceDetail>
+        <l7:Resources>
+        <l7:ResourceSet tag="policy">
+        <l7:Resource type="policy" version="1">
+        &lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy"&gt; &lt;wsp:All wsp:Usage="Required"&gt; &lt;L7p:HardcodedResponse&gt; &lt;L7p:Base64ResponseBody stringValue="aGVsbG8="/&gt; &lt;/L7p:HardcodedResponse&gt; &lt;/wsp:All&gt; &lt;/wsp:Policy&gt;
+        </l7:Resource>
+        </l7:ResourceSet>
+        </l7:Resources>
+        </l7:Service>
+        </l7:Resource>
         </l7:Item>
         <l7:Item>
             <l7:Name>my-bundle-extension</l7:Name>

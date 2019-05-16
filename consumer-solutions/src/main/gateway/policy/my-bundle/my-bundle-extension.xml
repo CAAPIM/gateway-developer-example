@@ -1,0 +1,100 @@
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
+    <wsp:All wsp:Usage="Required">
+        <L7p:Include>
+            <L7p:Enabled booleanValue="false"/>
+            <L7p:PolicyGuid policyPath="common/auth/basic-auth"/>
+        </L7p:Include>
+        <L7p:SetVariable>
+            <L7p:Expression><![CDATA[[]]></L7p:Expression>
+            <L7p:VariableToSet stringValue="json-response"/>
+        </L7p:SetVariable>
+        <L7p:Encapsulated encassName="createPet">
+            <L7p:Parameters mapValue="included">
+                <L7p:entry>
+                    <L7p:key stringValue="age"/>
+                    <L7p:value stringValue="1"/>
+                </L7p:entry>
+                <L7p:entry>
+                    <L7p:key stringValue="name"/>
+                    <L7p:value stringValue="Buddy"/>
+                </L7p:entry>
+                <L7p:entry>
+                    <L7p:key stringValue="type"/>
+                    <L7p:value stringValue="Dog"/>
+                </L7p:entry>
+            </L7p:Parameters>
+        </L7p:Encapsulated>
+        <L7p:SetVariable>
+            <L7p:Expression><![CDATA[${json-response}${pet-json}]]></L7p:Expression>
+            <L7p:VariableToSet stringValue="json-response"/>
+        </L7p:SetVariable>
+        <L7p:Encapsulated encassName="createPet">
+            <L7p:Parameters mapValue="included">
+                <L7p:entry>
+                    <L7p:key stringValue="age"/>
+                    <L7p:value stringValue="${request.http.parameter.age}"/>
+                </L7p:entry>
+                <L7p:entry>
+                    <L7p:key stringValue="name"/>
+                    <L7p:value stringValue="${request.http.parameter.name}"/>
+                </L7p:entry>
+                <L7p:entry>
+                    <L7p:key stringValue="type"/>
+                    <L7p:value stringValue="${request.http.parameter.type}"/>
+                </L7p:entry>
+            </L7p:Parameters>
+        </L7p:Encapsulated>
+        <L7p:SetVariable>
+            <L7p:Expression><![CDATA[${json-response},${pet-json}]]></L7p:Expression>
+            <L7p:VariableToSet stringValue="json-response"/>
+        </L7p:SetVariable>
+        <L7p:Encapsulated encassName="createPet">
+            <L7p:Parameters mapValue="included">
+                <L7p:entry>
+                    <L7p:key stringValue="age"/>
+                    <L7p:value stringValue="1"/>
+                </L7p:entry>
+                <L7p:entry>
+                    <L7p:key stringValue="name"/>
+                    <L7p:value stringValue="Sofie"/>
+                </L7p:entry>
+                <L7p:entry>
+                    <L7p:key stringValue="type"/>
+                    <L7p:value stringValue="dog"/>
+                </L7p:entry>
+            </L7p:Parameters>
+        </L7p:Encapsulated>
+        <L7p:SetVariable>
+            <L7p:Expression><![CDATA[${json-response},${pet-json}]]></L7p:Expression>
+            <L7p:VariableToSet stringValue="json-response"/>
+        </L7p:SetVariable>
+        <L7p:Encapsulated encassName="createPet">
+            <L7p:Parameters mapValue="included">
+                <L7p:entry>
+                    <L7p:key stringValue="age"/>
+                    <L7p:value stringValue="2"/>
+                </L7p:entry>
+                <L7p:entry>
+                    <L7p:key stringValue="name"/>
+                    <L7p:value stringValue="Billy"/>
+                </L7p:entry>
+                <L7p:entry>
+                    <L7p:key stringValue="type"/>
+                    <L7p:value stringValue="cat"/>
+                </L7p:entry>
+            </L7p:Parameters>
+        </L7p:Encapsulated>
+        <L7p:SetVariable>
+            <L7p:Expression><![CDATA[${json-response},${pet-json}]]></L7p:Expression>
+            <L7p:VariableToSet stringValue="json-response"/>
+        </L7p:SetVariable>
+        <L7p:SetVariable>
+            <L7p:Expression><![CDATA[${json-response}]]]></L7p:Expression>
+            <L7p:VariableToSet stringValue="json-response"/>
+        </L7p:SetVariable>
+        <L7p:HardcodedResponse>
+            <L7p:ResponseBody><![CDATA[${json-response}]]></L7p:ResponseBody>
+            <L7p:ResponseContentType stringValue="text/json; charset=UTF-8"/>
+        </L7p:HardcodedResponse>
+    </wsp:All>
+</wsp:Policy>

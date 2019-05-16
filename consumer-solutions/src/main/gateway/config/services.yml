@@ -7,3 +7,39 @@ consumer-solutions/pets/listPets:
   - "GET"
   - "PUT"
   properties: {}
+consumer-solutions/pets/testy-name2a-name2b-name2c-name2d:
+  url: "/testy"
+  policy: "consumer-solutions/pets/testy-name2a-name2b-name2c-name2d"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+consumer-solutions/pets/testz-name3a-name3b-name3c-name3d-name3e:
+  url: "/testz"
+  policy: "consumer-solutions/pets/testz-name3a-name3b-name3c-name3d-name3e"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+consumer-solutions/pets/testx-name1-name1a-name1b:
+  url: "/testx/name1/name1a/name1b"
+  policy: "consumer-solutions/pets/testx-name1-name1a-name1b"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  my-bundle/testservice:
+  url: "/testservice"
+  policy: "my-bundle/testservice"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}

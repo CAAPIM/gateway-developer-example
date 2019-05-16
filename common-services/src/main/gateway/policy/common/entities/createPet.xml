@@ -2,9 +2,9 @@
     <wsp:All wsp:Usage="Required">
         <L7p:SetVariable>
             <L7p:Expression><![CDATA[{
-	"name": "${name}",
-	"type": "${type}",
-	"age": "${age}"
+	&quot;name&quot;: &quot;${name}&quot;,
+	&quot;type&quot;: &quot;${type}&quot;,
+	&quot;age&quot;: &quot;${age}&quot;
 }]]></L7p:Expression>
             <L7p:VariableToSet stringValue="pet-json"/>
         </L7p:SetVariable>

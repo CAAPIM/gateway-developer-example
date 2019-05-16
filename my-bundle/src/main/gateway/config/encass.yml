@@ -1,0 +1,12 @@
+my-bundle-extension:
+  policy: "my-bundle/my-bundle-extension"
+  arguments:
+  - name: "goodbye"
+    type: "string"
+    requireExplicit: true
+  - name: "goodbye-again"
+    type: "message"
+    requireExplicit: true
+  results: []
+  properties:
+    paletteFolder: "internalAssertions"

@@ -1,0 +1,9 @@
+my-bundle/TestOR:
+  url: "/testOR"
+  policy: "my-bundle/TestOR"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
