@@ -20,7 +20,6 @@
                 </l7:Folder>
             </l7:Resource>
         </l7:Item>
-
         <l7:Item>
             <l7:Name>my-bundle-extension</l7:Name>
             <l7:Id>b24e8f6047856b780f8237ff36fc3713</l7:Id>
