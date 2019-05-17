@@ -1,6 +1,6 @@
-my-bundle/TestOR:
-  url: "/testOR"
-  policy: "my-bundle/TestOR"
+my-bundle/testservice:
+  url: "/testserviceOR"
+  policy: "my-bundle/testservice"
   httpMethods:
   - "DELETE"
   - "POST"

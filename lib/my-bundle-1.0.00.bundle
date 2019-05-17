@@ -47,14 +47,14 @@
             </l7:Resource>
         </l7:Item>
         <l7:Item>
-        <l7:Name>testservice</l7:Name>
+        <l7:Name>my-bundle/testservice</l7:Name>
         <l7:Id>c3e01a74e06baddb76b047986c280d02</l7:Id>
         <l7:Type>SERVICE</l7:Type>
         <l7:TimeStamp>2019-05-16T20:31:14.998Z</l7:TimeStamp>
         <l7:Resource>
         <l7:Service id="c3e01a74e06baddb76b047986c280d02" version="2">
         <l7:ServiceDetail folderId="b24e8f6047856b780f8237ff36fc3714" id="c3e01a74e06baddb76b047986c280d02" version="2">
-        <l7:Name>testservice</l7:Name>
+        <l7:Name>my-bundle/testservice</l7:Name>
         <l7:Enabled>true</l7:Enabled>
         <l7:ServiceMappings>
         <l7:HttpMapping>
@@ -133,5 +133,15 @@
         <l7:Mapping action="NewOrExisting" srcId="b24e8f6047856b780f8237ff36fc3714" type="FOLDER"/>
         <l7:Mapping action="NewOrExisting" srcId="b24e8f6047856b780f8237ff36fc3713" type="POLICY"/>
         <l7:Mapping action="NewOrExisting" srcId="b24e8f6047856b780f8237ff36fc3718" type="ENCAPSULATED_ASSERTION"/>
+        <l7:Mapping action="NewOrExisting" srcId="c3e01a74e06baddb76b047986c280d02" type="SERVICE">
+            <l7:Properties>
+                <l7:Property key="MapBy">
+                    <l7:StringValue>path</l7:StringValue>
+                </l7:Property>
+                <l7:Property key="MapTo">
+                    <l7:StringValue>my-bundle/testservice</l7:StringValue>
+                </l7:Property>
+            </l7:Properties>
+        </l7:Mapping>
     </l7:Mappings>
 </l7:Bundle>

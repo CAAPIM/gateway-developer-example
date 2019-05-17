@@ -34,12 +34,3 @@ consumer-solutions/pets/testx-name1-name1a-name1b:
   - "GET"
   - "PUT"
   properties: {}
-  my-bundle/testservice:
-  url: "/testservice"
-  policy: "my-bundle/testservice"
-  httpMethods:
-  - "DELETE"
-  - "POST"
-  - "GET"
-  - "PUT"
-  properties: {}
