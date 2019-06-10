@@ -1,0 +1,8 @@
+Test:
+  policy: "common/ScheduledTaskPolicy"
+  isOneNode: false
+  jobType: "Recurring"
+  jobStatus: "Scheduled"
+  cronExpression: "0 0/60 * ? * 2,3,4,5,6"
+  shouldExecuteOnCreate: false
+  properties: {}

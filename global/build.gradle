@@ -5,12 +5,5 @@
  */
 
 GatewayExportConfig {
-    folderPath = '/common'
-    exportEntities = [
-        jdbcConnections:[ "pets-db" ],
-    ]
-}
-
-dependencies {
-    bundle group: 'my-bundle', name: 'my-bundle', version: '1.0.00', ext: 'bundle'
+    folderPath = '/global-policies'
 }

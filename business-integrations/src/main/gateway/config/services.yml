@@ -7,3 +7,4 @@ business-integrations/b2b-services:
   - "GET"
   - "PUT"
   properties: {}
+  wssProcessingEnabled: false

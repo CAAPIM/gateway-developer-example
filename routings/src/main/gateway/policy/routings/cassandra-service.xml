@@ -1,0 +1,18 @@
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
+    <wsp:All wsp:Usage="Required">
+        <L7p:Authentication>
+            <L7p:IdentityProviderName stringValue="LdapServer"/>
+        </L7p:Authentication>
+        <L7p:CassandraQuery>
+            <L7p:ConnectionName stringValue="Test"/>
+            <L7p:FetchSize intValue="5000"/>
+            <L7p:GenerateXmlResult booleanValue="true"/>
+            <L7p:MaxRecords intValue="10"/>
+            <L7p:QueryDocument stringValue="test"/>
+            <L7p:QueryTimeout stringValue="1"/>
+        </L7p:CassandraQuery>
+        <L7p:HardcodedResponse>
+            <L7p:ResponseBody><![CDATA[${jdbcQuery.xmlResult}]]></L7p:ResponseBody>
+        </L7p:HardcodedResponse>
+    </wsp:All>
+</wsp:Policy>

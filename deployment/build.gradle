@@ -7,6 +7,10 @@
 dependencies {
     bundle project(':business-integrations')
     bundle project(':consumer-solutions')
+    bundle project(':audit')
+    bundle project(':global')
+    bundle project(':routings')
+    bundle project(':service-metrics')
 }
 
 // Configurations below are designed to be used with non-ephemeral gateways

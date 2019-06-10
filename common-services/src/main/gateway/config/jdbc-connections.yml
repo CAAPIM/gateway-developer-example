@@ -1,9 +1,0 @@
-pets-db:
-  driverClass: "com.l7tech.jdbc.mysql.MySQLDriver"
-  jdbcUrl: "TBD"
-  properties:
-    EnableCancelTimeout: "true"
-  user: "admin"
-  passwordRef: "pets-db-password"
-  minimumPoolSize: 3
-  maximumPoolSize: 15

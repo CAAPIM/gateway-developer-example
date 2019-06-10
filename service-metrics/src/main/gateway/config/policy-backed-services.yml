@@ -1,0 +1,5 @@
+Metrics:
+  interfaceName: "com.l7tech.external.assertions.pbsmel.server.ServiceMetricsProcessor"
+  operations:
+  - policy: "service-metrics/Metrics"
+    operationName: "process"

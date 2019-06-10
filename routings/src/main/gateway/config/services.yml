@@ -1,0 +1,95 @@
+routings/routing-assertion-example:
+  url: "/routingExample"
+  policy: "routings/routing-assertion-example"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false
+routings/my-gateway-api:
+  url: "/example"
+  policy: "routings/my-gateway-api"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false
+routings/soap/PlayerStatsService:
+  policy: "routings/soap/PlayerStatsService"
+  httpMethods:
+  - "POST"
+  properties: {}
+  soapResources:
+  - rootUrl: "http://apim-hugh.lvn.broadcom.net:8081/axis/services/PlayerStats?wsdl"
+    type: "wsdl"
+  soapVersion: "1.1"
+  wssProcessingEnabled: true
+  wsdlRootUrl: "http://apim-hugh.lvn.broadcom.net:8081/axis/services/PlayerStats?wsdl"
+routings/soap/Calculator:
+  url: "/calculatorSoap"
+  policy: "routings/soap/Calculator"
+  httpMethods:
+  - "POST"
+  - "GET"
+  properties: {}
+  soapResources:
+  - rootUrl: "http://www.dneonline.com/calculator.asmx?wsdl"
+    type: "wsdl"
+  soapVersion: "unspecified"
+  wssProcessingEnabled: true
+  wsdlRootUrl: "http://www.dneonline.com/calculator.asmx?wsdl"
+routings/ftp-service:
+  url: "/ftp-service"
+  policy: "routings/ftp-service"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false
+routings/another-service:
+  url: "/another-service-example"
+  policy: "routings/another-service"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false
+routings/environment-properties-example:
+  url: "/propertiesService"
+  policy: "routings/environment-properties-example"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties:
+    ENV.serviceProperty:
+  wssProcessingEnabled: false
+routings/db-service:
+  url: "/db-service"
+  policy: "routings/db-service"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false
+routings/cassandra-service:
+  url: "/cassandra-service"
+  policy: "routings/cassandra-service"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

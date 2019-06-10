@@ -1,0 +1,5 @@
+background-task-service:
+  interfaceName: "com.l7tech.objectmodel.polback.BackgroundTask"
+  operations:
+  - policy: "common/ScheduledTaskPolicy"
+    operationName: "run"

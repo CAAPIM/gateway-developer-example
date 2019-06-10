@@ -1,0 +1,437 @@
+<wsdl:definitions targetNamespace="http://apim-hugh.lvn.broadcom.net:8081/axis/services/PlayerStats" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://apim-hugh.lvn.broadcom.net:8081/axis/services/PlayerStats" xmlns:intf="http://apim-hugh.lvn.broadcom.net:8081/axis/services/PlayerStats" xmlns:tns1="http://playerstatsws.test.l7tech.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.3
+Built on Oct 05, 2005 (05:23:37 EDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://playerstatsws.test.l7tech.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getPhysicalStats">
+    <complexType>
+     <sequence>
+      <element name="playerNumber" type="xsd:int"/>
+      <element name="delay" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPhysicalStatsResponse">
+    <complexType>
+     <sequence>
+      <element name="getPhysicalStatsReturn" type="tns1:PhysicalStats"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="PhysicalStats">
+    <sequence>
+     <element name="height" nillable="true" type="xsd:string"/>
+     <element name="position" nillable="true" type="xsd:string"/>
+     <element name="shoots" nillable="true" type="xsd:string"/>
+     <element name="weight" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <element name="getOffensiveStats">
+    <complexType>
+     <sequence>
+      <element name="playerNumber" type="xsd:int"/>
+      <element name="delay" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOffensiveStatsResponse">
+    <complexType>
+     <sequence>
+      <element name="getOffensiveStatsReturn" type="tns1:OffensiveStats"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="OffensiveStats">
+    <sequence>
+     <element name="assists" type="xsd:int"/>
+     <element name="gamesPlayed" type="xsd:int"/>
+     <element name="goals" type="xsd:int"/>
+     <element name="penaltyMins" type="xsd:int"/>
+     <element name="plusMinus" type="xsd:int"/>
+     <element name="points" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <element name="listPlayers">
+    <complexType>
+     <sequence>
+      <element name="delay" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listPlayersResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listPlayersReturn" type="tns1:Player"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="DraftDetails">
+    <sequence>
+     <element name="pick" type="xsd:int"/>
+     <element name="round" type="xsd:int"/>
+     <element name="team" nillable="true" type="xsd:string"/>
+     <element name="year" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="Player">
+    <sequence>
+     <element name="FName" nillable="true" type="xsd:string"/>
+     <element name="LName" nillable="true" type="xsd:string"/>
+     <element name="age" type="xsd:int"/>
+     <element name="dob" nillable="true" type="xsd:string"/>
+     <element name="draftDetails" nillable="true" type="tns1:DraftDetails"/>
+     <element name="number" type="xsd:int"/>
+     <element name="offensiveStats" nillable="true" type="tns1:OffensiveStats"/>
+     <element name="physicalStats" nillable="true" type="tns1:PhysicalStats"/>
+    </sequence>
+   </complexType>
+   <element name="getDraftDetails">
+    <complexType>
+     <sequence>
+      <element name="playerNumber" type="xsd:int"/>
+      <element name="delay" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDraftDetailsResponse">
+    <complexType>
+     <sequence>
+      <element name="getDraftDetailsReturn" type="tns1:DraftDetails"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPlayer">
+    <complexType>
+     <sequence>
+      <element name="playerNumber" type="xsd:int"/>
+      <element name="delay" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPlayerResponse">
+    <complexType>
+     <sequence>
+      <element name="getPlayerReturn" type="tns1:Player"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addPlayer">
+    <complexType>
+     <sequence>
+      <element name="player" type="tns1:Player"/>
+      <element name="delay" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addPlayerResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="addPlayerReturn" type="tns1:Player"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removePlayer">
+    <complexType>
+     <sequence>
+      <element name="playerNumber" type="xsd:int"/>
+      <element name="delay" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removePlayerResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="removePlayerReturn" type="tns1:Player"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getDraftDetailsRequest">
+
+      <wsdl:part element="tns1:getDraftDetails" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPlayerRequest">
+
+      <wsdl:part element="tns1:getPlayer" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDraftDetailsResponse">
+
+      <wsdl:part element="tns1:getDraftDetailsResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addPlayerResponse">
+
+      <wsdl:part element="tns1:addPlayerResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOffensiveStatsRequest">
+
+      <wsdl:part element="tns1:getOffensiveStats" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPhysicalStatsResponse">
+
+      <wsdl:part element="tns1:getPhysicalStatsResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="removePlayerRequest">
+
+      <wsdl:part element="tns1:removePlayer" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOffensiveStatsResponse">
+
+      <wsdl:part element="tns1:getOffensiveStatsResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="removePlayerResponse">
+
+      <wsdl:part element="tns1:removePlayerResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPhysicalStatsRequest">
+
+      <wsdl:part element="tns1:getPhysicalStats" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listPlayersResponse">
+
+      <wsdl:part element="tns1:listPlayersResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listPlayersRequest">
+
+      <wsdl:part element="tns1:listPlayers" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPlayerResponse">
+
+      <wsdl:part element="tns1:getPlayerResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addPlayerRequest">
+
+      <wsdl:part element="tns1:addPlayer" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PlayerStats">
+
+      <wsdl:operation name="getPhysicalStats">
+
+         <wsdl:input message="impl:getPhysicalStatsRequest" name="getPhysicalStatsRequest"/>
+
+         <wsdl:output message="impl:getPhysicalStatsResponse" name="getPhysicalStatsResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOffensiveStats">
+
+         <wsdl:input message="impl:getOffensiveStatsRequest" name="getOffensiveStatsRequest"/>
+
+         <wsdl:output message="impl:getOffensiveStatsResponse" name="getOffensiveStatsResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listPlayers">
+
+         <wsdl:input message="impl:listPlayersRequest" name="listPlayersRequest"/>
+
+         <wsdl:output message="impl:listPlayersResponse" name="listPlayersResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDraftDetails">
+
+         <wsdl:input message="impl:getDraftDetailsRequest" name="getDraftDetailsRequest"/>
+
+         <wsdl:output message="impl:getDraftDetailsResponse" name="getDraftDetailsResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPlayer">
+
+         <wsdl:input message="impl:getPlayerRequest" name="getPlayerRequest"/>
+
+         <wsdl:output message="impl:getPlayerResponse" name="getPlayerResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addPlayer">
+
+         <wsdl:input message="impl:addPlayerRequest" name="addPlayerRequest"/>
+
+         <wsdl:output message="impl:addPlayerResponse" name="addPlayerResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removePlayer">
+
+         <wsdl:input message="impl:removePlayerRequest" name="removePlayerRequest"/>
+
+         <wsdl:output message="impl:removePlayerResponse" name="removePlayerResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="PlayerStatsSoapBinding" type="impl:PlayerStats">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getPhysicalStats">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPhysicalStatsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPhysicalStatsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOffensiveStats">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOffensiveStatsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOffensiveStatsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listPlayers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listPlayersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listPlayersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDraftDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDraftDetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDraftDetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPlayer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPlayerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPlayerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addPlayer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addPlayerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addPlayerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removePlayer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removePlayerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removePlayerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PlayerStatsService">
+
+      <wsdl:port binding="impl:PlayerStatsSoapBinding" name="PlayerStats">
+
+         <wsdlsoap:address location="http://apim-hugh.lvn.broadcom.net:8081/axis/services/PlayerStats"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

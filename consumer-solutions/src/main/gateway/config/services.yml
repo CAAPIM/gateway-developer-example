@@ -6,4 +6,4 @@ consumer-solutions/pets/listPets:
   - "POST"
   - "GET"
   - "PUT"
-  properties: {}
+  wssProcessingEnabled: false

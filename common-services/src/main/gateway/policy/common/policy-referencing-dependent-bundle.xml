@@ -1,0 +1,8 @@
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
+    <wsp:All wsp:Usage="Required">
+        <L7p:Include>
+            <L7p:PolicyGuid policyPath="my-bundle/my-bundle-extension"/>
+        </L7p:Include>
+        <L7p:Encapsulated encassName="my-bundle-extension"/>
+    </wsp:All>
+</wsp:Policy>

@@ -1,0 +1,29 @@
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
+    <wsp:All wsp:Usage="Required">
+        <L7p:NonSoapDecryptElement/>
+        <L7p:RequestXpathAssertion>
+            <L7p:VariablePrefix stringValue="output"/>
+            <L7p:XpathExpression xpathExpressionValue="included">
+                <L7p:Expression stringValue="/ns:savedmessage"/>
+                <L7p:Namespaces mapValue="included">
+                    <L7p:entry>
+                        <L7p:key stringValue="ns"/>
+                        <L7p:value stringValue="http://layer7tech.com/ns/audit"/>
+                    </L7p:entry>
+                    <L7p:entry>
+                        <L7p:key stringValue="s"/>
+                        <L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/>
+                    </L7p:entry>
+                </L7p:Namespaces>
+            </L7p:XpathExpression>
+        </L7p:RequestXpathAssertion>
+        <L7p:EncodeDecode>
+            <L7p:CharacterEncoding stringValueNull="null"/>
+            <L7p:SourceVariableName stringValue="output.result"/>
+            <L7p:TargetContentType stringValue="text/xml; charset=utf-8"/>
+            <L7p:TargetDataType variableDataType="message"/>
+            <L7p:TargetVariableName stringValue="request"/>
+            <L7p:TransformType transformType="BASE64_DECODE"/>
+        </L7p:EncodeDecode>
+    </wsp:All>
+</wsp:Policy>

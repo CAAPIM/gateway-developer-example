@@ -1,0 +1,12 @@
+Audit Viewer Policy:
+  path: "audit-policies/Audit Viewer Policy"
+  tag: "audit-viewer"
+Audit Filter Policy:
+  path: "audit-policies/Audit Filter Policy"
+  tag: "audit-message-filter"
+'[Internal Audit Sink Policy]':
+  path: "audit-policies/[Internal Audit Sink Policy]"
+  tag: "audit-sink"
+'[Internal Audit Lookup Policy]':
+  path: "audit-policies/[Internal Audit Lookup Policy]"
+  tag: "audit-lookup"
