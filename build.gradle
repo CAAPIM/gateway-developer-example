@@ -13,9 +13,9 @@ buildscript {
     }
     dependencies {
         // "+" will always pull the latest available
-        classpath "com.ca.apim.gateway:gateway-developer-plugin:0.8.+"
-        classpath "com.ca.apim.gateway:gateway-export-plugin:0.8.+"
-        classpath "com.ca.apim.gateway:gateway-import-plugin:0.8.+"
+        classpath "com.ca.apim.gateway:gateway-developer-plugin:0.10.+"
+        classpath "com.ca.apim.gateway:gateway-export-plugin:0.10.+"
+        classpath "com.ca.apim.gateway:gateway-import-plugin:0.10.+"
     }
 }
 
@@ -42,4 +42,25 @@ subprojects {
 
 wrapper {
     gradleVersion = '4.10'
+}
+
+// Zip task
+FileTree tree = fileTree(dir: 'build/gateway/bundle', include: '*.metadata.yml')
+tree.each { File file ->
+    String bundleName = file.name.substring(0, file.name.indexOf('.metadata.yml'))
+    task "zip-${bundleName}"(type: Zip) {
+        archiveName = bundleName + '.zip'
+        from('build/gateway/bundle') {
+            include bundleName + '-*.bundle'
+            include file.name
+        }
+    }
+}
+
+// Zip bundles task
+task zipBundles {
+    tree.each { File file ->
+        String bundleName = file.name.substring(0, file.name.indexOf('.metadata.yml'))
+        dependsOn 'zip-' + bundleName;
+    }
 }
