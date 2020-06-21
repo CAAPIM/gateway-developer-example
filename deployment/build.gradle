@@ -74,8 +74,6 @@ GatewaySourceConfig {
     def environmentType = project.parent.properties['environmentType'] ?: 'test'
     // select the environment config for the specified environment
     environmentConfig = project.ext."${environmentType}EnvironmentInfo"
-    // also setting a specific directory for environment bundle work
-    builtEnvironmentBundleDir = new File(project.buildDir, "deployment")
 }
 
 // The section below configures the tasks related to building and deploying the bundles.
@@ -83,7 +81,7 @@ GatewaySourceConfig {
 
 // The first one is the task that will grab all behavior configuration bundles (called 'deployment' bundles)
 // and generate an environment configuration bundle using information from the specified environment profile.
-// Then, all bundles get merged and exported to a file (which is represented by the 'outputBundle' property)
+// Then, all bundles get merged and exported to a file
 
 // The second one is the task that will grab any bundle and upload to the Gateway, using restman endpoint configurations 
 // specified above.
@@ -91,10 +89,13 @@ GatewaySourceConfig {
 // of the build-full-bundle task. This will install the solution merged bundle, containing the environment properties,
 // and the behaviour configurations.
 // This is achieved by adding the 'dependsOn' declaration below, and setting the 'importFile' of the task to look into
-// the 'outputBundle' of the other task.
+// the generated full bundle of the other task.
 tasks.getByName("import-bundle").dependsOn("build-full-bundle")
 project.afterEvaluate {
-    tasks.getByName("import-bundle").importFile = tasks.getByName("build-full-bundle").outputBundle
+    def gatewayDir = new File(project.buildDir, "gateway")
+    def bundleDir = new File(gatewayDir, "bundle")
+    def bundleFile = project.name + "-" + project.version + "-full.install.bundle"
+    tasks.getByName("import-bundle").importFile = new File(bundleDir, bundleFile)
 }
 
 // To try this whole solution, follow the steps below:
