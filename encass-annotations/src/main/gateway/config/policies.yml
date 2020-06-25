@@ -1,0 +1,14 @@
+encass/encass_env_policy:
+  type: "Include"
+  tag:
+  subtag:
+  usedEntities:
+  - type: "JDBC_CONNECTION"
+    name: "jdbc_con1"
+  - type: "SECURE_PASSWORD"
+    name: "jdbc_con_pass"
+encass/encass_policy:
+  annotations:
+    - type: "@reusable"
+  type: "Include"
+  tag:

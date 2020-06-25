@@ -1,0 +1,32 @@
+encass_with_annotation:
+  annotations:
+  - type: "@bundle"
+    name: "encass-annotations"
+  policy: "encass/encass_env_policy"
+  arguments:
+  - type: "string"
+    name: "encass_in_param1"
+    requireExplicit: true
+    label: "label_encass_in_param1"
+  results:
+  - name: "encass_out_param1"
+    type: "string"
+  properties:
+    paletteFolder: "internalAssertions"
+    allowTracing: "false"
+    description: "My Encass for testing"
+    passMetricsToParent: "false"
+encass_test:
+  policy: "encass/encass_policy"
+  arguments:
+  - name: "encass_in_param1"
+    type: "string"
+    requireExplicit: true
+  results:
+  - name: "encass_out_param1"
+    type: "string"
+  properties:
+    paletteFolder: "internalAssertions"
+    allowTracing: "false"
+    description: "My Encass for testing"
+    passMetricsToParent: "false"
