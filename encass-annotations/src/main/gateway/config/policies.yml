@@ -1,14 +1,12 @@
-encass/encass_env_policy:
+encass/find-internal-users:
   type: "Include"
   tag:
   subtag:
   usedEntities:
   - type: "JDBC_CONNECTION"
-    name: "jdbc_con1"
+    name: "internal-users-connection"
   - type: "SECURE_PASSWORD"
-    name: "jdbc_con_pass"
-encass/encass_policy:
-  annotations:
-    - type: "@reusable"
+    name: "internal-users-password"
+encass/hello-world:
   type: "Include"
   tag:

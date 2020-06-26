@@ -1,8 +1,8 @@
-encass_with_annotation:
+find-internal-users:
   annotations:
   - type: "@bundle"
     name: "encass-annotations"
-  policy: "encass/encass_env_policy"
+  policy: "encass/find-internal-users"
   arguments:
   - type: "string"
     name: "encass_in_param1"
@@ -14,10 +14,12 @@ encass_with_annotation:
   properties:
     paletteFolder: "internalAssertions"
     allowTracing: "false"
-    description: "My Encass for testing"
+    description: "find internal users"
     passMetricsToParent: "false"
-encass_test:
-  policy: "encass/encass_policy"
+hello-world:
+  annotations:
+    - "@bundle"
+  policy: "encass/hello-world"
   arguments:
   - name: "encass_in_param1"
     type: "string"
@@ -28,5 +30,5 @@ encass_test:
   properties:
     paletteFolder: "internalAssertions"
     allowTracing: "false"
-    description: "My Encass for testing"
+    description: "hello world encass"
     passMetricsToParent: "false"
