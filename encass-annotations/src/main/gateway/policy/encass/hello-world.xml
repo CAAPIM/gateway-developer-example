@@ -1,0 +1,13 @@
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
+    <wsp:All wsp:Usage="Required">
+        <L7p:CommentAssertion>
+            <L7p:Comment stringValue="Policy Fragment: hello-world"/>
+        </L7p:CommentAssertion>
+        <L7p:AuditDetailAssertion>
+            <L7p:Detail stringValue="Hello World"/>
+        </L7p:AuditDetailAssertion>
+        <L7p:HardcodedResponse>
+            <L7p:ResponseBody><![CDATA[Hello World]]></L7p:ResponseBody>
+        </L7p:HardcodedResponse>
+    </wsp:All>
+</wsp:Policy>

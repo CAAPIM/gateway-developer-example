@@ -1,0 +1,34 @@
+find-internal-users:
+  annotations:
+  - type: "@bundle"
+    name: "encass-annotations"
+  policy: "encass/find-internal-users"
+  arguments:
+  - type: "string"
+    name: "encass_in_param1"
+    requireExplicit: true
+    label: "label_encass_in_param1"
+  results:
+  - name: "encass_out_param1"
+    type: "string"
+  properties:
+    paletteFolder: "internalAssertions"
+    allowTracing: "false"
+    description: "find internal users"
+    passMetricsToParent: "false"
+hello-world:
+  annotations:
+    - "@bundle"
+  policy: "encass/hello-world"
+  arguments:
+  - name: "encass_in_param1"
+    type: "string"
+    requireExplicit: true
+  results:
+  - name: "encass_out_param1"
+    type: "string"
+  properties:
+    paletteFolder: "internalAssertions"
+    allowTracing: "false"
+    description: "hello world encass"
+    passMetricsToParent: "false"

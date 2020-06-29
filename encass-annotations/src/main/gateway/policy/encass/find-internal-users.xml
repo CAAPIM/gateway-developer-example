@@ -1,0 +1,12 @@
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
+    <wsp:All wsp:Usage="Required">
+        <L7p:CommentAssertion>
+            <L7p:Comment stringValue="Policy Fragment: find-internal-users"/>
+        </L7p:CommentAssertion>
+        <L7p:JdbcQuery>
+            <L7p:ConnectionName stringValue="internal-users-connection"/>
+            <L7p:ConvertVariablesToStrings booleanValue="false"/>
+            <L7p:SqlQuery stringValue="select user from internal_user;"/>
+        </L7p:JdbcQuery>
+    </wsp:All>
+</wsp:Policy>

@@ -1,0 +1,12 @@
+encass/find-internal-users:
+  type: "Include"
+  tag:
+  subtag:
+  usedEntities:
+  - type: "JDBC_CONNECTION"
+    name: "internal-users-connection"
+  - type: "SECURE_PASSWORD"
+    name: "internal-users-password"
+encass/hello-world:
+  type: "Include"
+  tag:

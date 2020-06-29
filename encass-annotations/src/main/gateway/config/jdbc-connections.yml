@@ -1,0 +1,18 @@
+internal-users-connection:
+  driverClass: "com.l7tech.jdbc.mysql.MySQLDriver"
+  jdbcUrl: "jdbc:l7tech:mysql://localhost:3306"
+  properties:
+    EnableCancelTimeout: "true"
+  user: "gateway"
+  passwordRef: "internal-users-password"
+  minimumPoolSize: 3
+  maximumPoolSize: 15
+internal-users-connection2:
+  driverClass: "com.l7tech.jdbc.mysql.MySQLDriver"
+  jdbcUrl: "jdbc:l7tech:mysql://localhost:3305"
+  properties:
+    EnableCancelTimeout: "true"
+  user: "gateway"
+  passwordRef: "internal-users-password"
+  minimumPoolSize: 3
+  maximumPoolSize: 15
