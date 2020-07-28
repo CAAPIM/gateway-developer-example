@@ -88,14 +88,11 @@ GatewaySourceConfig {
 // To achieve the required result, we set the import-bundle task to install the bundle that is the output 
 // of the build-full-bundle task. This will install the solution merged bundle, containing the environment properties,
 // and the behaviour configurations.
-// This is achieved by adding the 'dependsOn' declaration below, and setting the 'importFile' of the task to look into
-// the generated full bundle of the other task.
+// This is achieved by adding the 'dependsOn' declaration below, and setting the  bundles property in GatewayImportConfig
 tasks.getByName("import-bundle").dependsOn("build-full-bundle")
-project.afterEvaluate {
-    def gatewayDir = new File(project.buildDir, "gateway")
-    def bundleDir = new File(gatewayDir, "bundle")
-    def bundleFile = project.name + "-" + project.version + "-full.install.bundle"
-    tasks.getByName("import-bundle").importFile = new File(bundleDir, bundleFile)
+
+GatewayImportConfig {
+    bundles = files("./build/gateway/bundle/" + project.name + "-" + project.version + "-full.install.bundle")
 }
 
 // To try this whole solution, follow the steps below:
