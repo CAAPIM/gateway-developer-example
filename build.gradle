@@ -51,7 +51,7 @@ tree.each { File file ->
     task "zip-${bundleName}"(type: Zip) {
         archiveName = bundleName + '.zip'
         from('build/gateway/bundle') {
-            include bundleName + '-*.bundle'
+            include bundleName + '*.bundle'
             include file.name
         }
     }
