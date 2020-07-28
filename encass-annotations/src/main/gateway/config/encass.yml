@@ -1,6 +1,7 @@
 find-internal-users:
   annotations:
-  - type: "@bundle"
+  - "@bundle"
+  - type: "@bundle-hints"
     name: "encass-annotations"
   policy: "encass/find-internal-users"
   arguments:

@@ -29,7 +29,7 @@ subprojects {
     } 
 
     group 'com.ca.apim.gateway'
-    version = '0.10.1'
+    version = '0.10.2'
 
     repositories {
         mavenLocal()
@@ -51,7 +51,7 @@ tree.each { File file ->
     task "zip-${bundleName}"(type: Zip) {
         archiveName = bundleName + '.zip'
         from('build/gateway/bundle') {
-            include bundleName + '-*.bundle'
+            include bundleName + '*.bundle'
             include file.name
         }
     }
