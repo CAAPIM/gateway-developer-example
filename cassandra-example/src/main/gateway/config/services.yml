@@ -1,6 +1,6 @@
-cassandra/Cassandra Connection Example:
+cassandra-folder/cassandra-service:
   url: "/cassandra"
-  policy: "cassandra/Cassandra Connection Example"
+  policy: "cassandra-folder/cassandra-policy"
   httpMethods:
   - "DELETE"
   - "POST"

@@ -1,6 +1,6 @@
-storedpassword/Stored Password Example:
+password-folder/password-service:
   url: "/password"
-  policy: "storedpassword/Stored Password Example"
+  policy: "password-folder/password-policy"
   httpMethods:
   - "DELETE"
   - "POST"

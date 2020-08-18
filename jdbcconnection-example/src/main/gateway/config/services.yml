@@ -1,6 +1,6 @@
-jdbc/JDBC Connection Example:
+jdbcconnection-folder/jdbcconnection-service:
   url: "/jdbc"
-  policy: "jdbc/JDBC Connection Example"
+  policy: "jdbcconnection-folder/jdbcconnection-policy"
   httpMethods:
   - "DELETE"
   - "POST"

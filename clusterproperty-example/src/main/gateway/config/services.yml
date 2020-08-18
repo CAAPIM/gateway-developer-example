@@ -1,6 +1,6 @@
-properties/Cluster Properties Example:
+clusterproperty-folder/clusterproperty-service:
   url: "/property"
-  policy: "properties/Cluster Properties Example"
+  policy: "clusterproperty-folder/clusterproperty-policy"
   httpMethods:
   - "DELETE"
   - "POST"

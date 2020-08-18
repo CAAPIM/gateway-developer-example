@@ -1,6 +1,6 @@
-http2/Http2 Client Example:
+http2client-folder/http2client-service:
   url: "/http2"
-  policy: "http2/Http2 Client Example"
+  policy: "http2client-folder/http2client-policy"
   httpMethods:
   - "DELETE"
   - "POST"

@@ -1,6 +1,6 @@
-idprovider/Id provider example:
+idprovider-folder/idprovider-service:
   url: "/idprovider"
-  policy: "idprovider/Id provider example"
+  policy: "idprovider-folder/idprovider-policy"
   httpMethods:
   - "DELETE"
   - "POST"

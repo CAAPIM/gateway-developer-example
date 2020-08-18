@@ -1,6 +1,6 @@
-privatekey/Private Key Example:
+privatekey-folder/privatekey-service:
   url: "/privatekey"
-  policy: "privatekey/Private Key Example"
+  policy: "privatekey-folder/privatekey-policy"
   httpMethods:
   - "DELETE"
   - "POST"

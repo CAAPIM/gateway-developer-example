@@ -1,6 +1,6 @@
-jms/JMS example:
+jms-folder/jms-service:
   url: "/jms"
-  policy: "jms/JMS example"
+  policy: "jms-folder/jms-policy"
   httpMethods:
   - "DELETE"
   - "POST"

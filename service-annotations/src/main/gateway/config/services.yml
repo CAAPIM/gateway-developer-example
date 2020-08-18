@@ -10,3 +10,5 @@ certificate/Certificate Example:
   wssProcessingEnabled: false
   annotations:
   - "@bundle"
+  - type : "@bundle-hints"
+    name: "service-annotations"

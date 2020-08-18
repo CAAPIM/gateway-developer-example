@@ -1,6 +1,6 @@
-mqnative/MQ Native Example:
+mqnative-folder/mqnative-service:
   url: "/mqnative"
-  policy: "mqnative/MQ Native Example"
+  policy: "mqnative-folder/mqnative-policy"
   httpMethods:
   - "DELETE"
   - "POST"
