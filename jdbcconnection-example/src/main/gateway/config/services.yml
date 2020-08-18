@@ -1,0 +1,10 @@
+jdbc/JDBC Connection Example:
+  url: "/jdbc"
+  policy: "jdbc/JDBC Connection Example"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

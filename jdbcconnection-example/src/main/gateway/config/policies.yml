@@ -1,0 +1,9 @@
+jdbc/JDBC Connection Example:
+  type:
+  tag:
+  subtag:
+  hasRouting: true
+  usedEntities:
+  - type: "JDBC_CONNECTION"
+    name: "mysql"
+  annotations:

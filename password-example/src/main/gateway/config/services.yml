@@ -1,0 +1,10 @@
+storedpassword/Stored Password Example:
+  url: "/password"
+  policy: "storedpassword/Stored Password Example"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

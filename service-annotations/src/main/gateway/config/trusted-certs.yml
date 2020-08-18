@@ -1,0 +1,12 @@
+www.google.com:
+  verifyHostname: false
+  trustedForSsl: true
+  trustedAsSamlAttestingEntity: false
+  trustAnchor: true
+  revocationCheckingEnabled: true
+  trustedForSigningClientCerts: false
+  trustedForSigningServerCerts: false
+  trustedAsSamlIssuer: false
+  annotations:
+  - type: "@bundle-hints"
+    id: "650a44894bb5d14a6cfd2b061e221f4a"

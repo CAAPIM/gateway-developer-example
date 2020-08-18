@@ -1,0 +1,9 @@
+cassandra/Cassandra Connection Example:
+  type:
+  tag:
+  subtag:
+  hasRouting: true
+  usedEntities:
+  - type: "CASSANDRA_CONFIGURATION"
+    name: "cassandraTestConnection"
+  annotations:

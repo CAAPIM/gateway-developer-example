@@ -1,0 +1,9 @@
+jms/JMS example:
+  type:
+  tag:
+  subtag:
+  hasRouting: true
+  usedEntities:
+  - type: "JMS_ENDPOINT"
+    name: "jmsDestination"
+  annotations:

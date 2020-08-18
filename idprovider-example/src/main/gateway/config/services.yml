@@ -1,0 +1,10 @@
+idprovider/Id provider example:
+  url: "/idprovider"
+  policy: "idprovider/Id provider example"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

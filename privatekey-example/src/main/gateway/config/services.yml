@@ -1,0 +1,10 @@
+privatekey/Private Key Example:
+  url: "/privatekey"
+  policy: "privatekey/Private Key Example"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

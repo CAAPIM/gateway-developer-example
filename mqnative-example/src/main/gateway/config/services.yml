@@ -1,0 +1,10 @@
+mqnative/MQ Native Example:
+  url: "/mqnative"
+  policy: "mqnative/MQ Native Example"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

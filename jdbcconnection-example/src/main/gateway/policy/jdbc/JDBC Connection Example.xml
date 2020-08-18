@@ -1,0 +1,18 @@
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
+    <wsp:All wsp:Usage="Required">
+        <L7p:JdbcQuery>
+            <L7p:ConnectionName stringValue="mysql"/>
+            <L7p:ConvertVariablesToStrings booleanValue="false"/>
+            <L7p:NamingMap mapValue="included">
+                <L7p:entry>
+                    <L7p:key stringValue="user"/>
+                    <L7p:value stringValue="user"/>
+                </L7p:entry>
+            </L7p:NamingMap>
+            <L7p:SqlQuery stringValue="select user from internal_user"/>
+        </L7p:JdbcQuery>
+        <L7p:HardcodedResponse>
+            <L7p:ResponseBody><![CDATA[Hello ${jdbcQuery.user}]]></L7p:ResponseBody>
+        </L7p:HardcodedResponse>
+    </wsp:All>
+</wsp:Policy>

@@ -1,0 +1,10 @@
+properties/Cluster Properties Example:
+  url: "/property"
+  policy: "properties/Cluster Properties Example"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

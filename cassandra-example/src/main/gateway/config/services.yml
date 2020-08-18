@@ -1,0 +1,10 @@
+cassandra/Cassandra Connection Example:
+  url: "/cassandra"
+  policy: "cassandra/Cassandra Connection Example"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

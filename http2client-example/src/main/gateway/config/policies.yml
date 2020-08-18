@@ -1,0 +1,11 @@
+http2/Http2 Client Example:
+  type:
+  tag:
+  subtag:
+  hasRouting: false
+  usedEntities:
+  - type: "SSG_KEY_ENTRY"
+    name: "apim_autotest_ssl"
+  - type: "GENERIC"
+    name: "http2TestClient"
+  annotations:

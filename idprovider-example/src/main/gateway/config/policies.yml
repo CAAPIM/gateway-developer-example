@@ -1,0 +1,9 @@
+idprovider/Id provider example:
+  type:
+  tag:
+  subtag:
+  hasRouting: false
+  usedEntities:
+  - type: "ID_PROVIDER_CONFIG"
+    name: "Test Identity Provider"
+  annotations:

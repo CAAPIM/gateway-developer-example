@@ -1,0 +1,4 @@
+test:
+  keystore: "Software DB"
+  algorithm: "RSA"
+  privateKeyFile:

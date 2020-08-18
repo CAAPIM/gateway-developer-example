@@ -1,0 +1,10 @@
+jms/JMS example:
+  url: "/jms"
+  policy: "jms/JMS example"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

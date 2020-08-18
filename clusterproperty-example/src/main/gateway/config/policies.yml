@@ -1,0 +1,11 @@
+properties/Cluster Properties Example:
+  type:
+  tag:
+  subtag:
+  hasRouting: true
+  usedEntities:
+  - type: "SSG_KEY_ENTRY"
+    name: "SSL"
+  - type: "ENVIRONMENT_PROPERTY"
+    name: "http.host"
+  annotations:

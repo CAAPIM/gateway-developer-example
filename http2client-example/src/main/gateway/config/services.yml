@@ -1,0 +1,10 @@
+http2/Http2 Client Example:
+  url: "/http2"
+  policy: "http2/Http2 Client Example"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

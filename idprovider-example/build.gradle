@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.ca.apim.gateway:config-builder:0.10.+"
+        classpath "com.ca.apim.gateway:environment-creator-application:0.10.+"
+        classpath "com.ca.apim.gateway:gateway-developer-plugin:0.10.+"
+        classpath "com.ca.apim.gateway:gateway-export-plugin:0.10.+"
+    }
+}
+
+apply plugin: 'com.ca.apim.gateway.gateway-export-plugin'
+apply plugin: 'com.ca.apim.gateway.gateway-developer-plugin'
+group = "idprovider"
+version = '1.0.0'
+repositories {
+    gradlePluginPortal()
+    mavenCentral()
+    jcenter()
+}
+
+EnvironmentConfig{
+    name="idproviderExample"
+    map=[
+            "IDENTITY_PROVIDER": file("./src/main/gateway/config/identity-providers.yml")
+    ]
+}

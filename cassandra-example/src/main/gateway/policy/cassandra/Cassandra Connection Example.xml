@@ -1,0 +1,20 @@
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
+    <wsp:All wsp:Usage="Required">
+        <L7p:CassandraQuery>
+            <L7p:ConnectionName stringValue="cassandraTestConnection"/>
+            <L7p:FetchSize intValue="5000"/>
+            <L7p:MaxRecords intValue="10"/>
+            <L7p:NamingMap mapValue="included">
+                <L7p:entry>
+                    <L7p:key stringValue="user"/>
+                    <L7p:value stringValue="user"/>
+                </L7p:entry>
+            </L7p:NamingMap>
+            <L7p:QueryDocument stringValue="select user from internal_user"/>
+            <L7p:QueryTimeout stringValueNull="null"/>
+        </L7p:CassandraQuery>
+        <L7p:HardcodedResponse>
+            <L7p:ResponseBody><![CDATA[Hello ${cassandraQuery.user}]]></L7p:ResponseBody>
+        </L7p:HardcodedResponse>
+    </wsp:All>
+</wsp:Policy>

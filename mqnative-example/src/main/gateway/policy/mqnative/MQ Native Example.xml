@@ -1,0 +1,15 @@
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
+    <wsp:All wsp:Usage="Required">
+        <L7p:MqNativeRouting>
+            <L7p:PutMessageTimeout stringValue=""/>
+            <L7p:RequestMessageAdvancedProperties mapValueNull="null"/>
+            <L7p:RequestMqNativeMessagePropertyRuleSet mappingRuleSet="included"/>
+            <L7p:ResponseMessageAdvancedProperties mapValueNull="null"/>
+            <L7p:ResponseMqNativeMessagePropertyRuleSet mappingRuleSet="included"/>
+            <L7p:ResponseTarget MessageTarget="included">
+                <L7p:Target target="RESPONSE"/>
+            </L7p:ResponseTarget>
+            <L7p:SsgActiveConnectorName stringValue="mqnativeTestConn"/>
+        </L7p:MqNativeRouting>
+    </wsp:All>
+</wsp:Policy>

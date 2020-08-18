@@ -1,0 +1,9 @@
+mqnative/MQ Native Example:
+  type:
+  tag:
+  subtag:
+  hasRouting: true
+  usedEntities:
+  - type: "SSG_ACTIVE_CONNECTOR"
+    name: "mqnativeTestConn"
+  annotations:

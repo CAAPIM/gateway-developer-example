@@ -1,0 +1,11 @@
+cassandraTestConnection:
+  keyspace: "qa"
+  contactPoint: "cassandratest.com"
+  port: 9042
+  username: ""
+  compression: "NONE"
+  ssl: false
+  properties: {}
+  annotations:
+  - type: "@bundle-hints"
+    id: "650a44894bb5d14a6cfd2b061e222212"
