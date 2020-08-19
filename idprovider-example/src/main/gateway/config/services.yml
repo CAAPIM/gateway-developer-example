@@ -1,0 +1,10 @@
+idprovider-folder/idprovider-service:
+  url: "/idprovider"
+  policy: "idprovider-folder/idprovider-policy"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

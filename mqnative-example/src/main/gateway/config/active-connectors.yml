@@ -1,0 +1,22 @@
+mqnativeTestConn:
+  connectorType: "MqNative"
+  properties:
+    inbound: "false"
+    MqNativePort: "9878"
+    MqNativeHostName: "localhost"
+    MqNativeChannel: "SYSTEM.DEF.SVRCONN"
+    MqNativeOutboundIsTemplateQueue: "false"
+    MqNativeTargetQueueName: "testQueue"
+    MqNativeInboundIsOpenOptionsUsed: "false"
+    MqNativeIsQueueCredentialRequired: "false"
+    MqNativeInboundIsReplyQueuePutMessageOptionsUsed: "false"
+    MqNativeQueueManagerName: "testManager"
+    MqNativeInboundIsGetMessageOptionsUsed: "false"
+    MqNativeOutboundIsReplyQueueGetMessageOptionsUsed: "false"
+    MqNativeIsSslEnabled: "false"
+    MqNativeOutboundMessageFormat: "AUTOMATIC"
+    MqNativeInboundIsFailedQueuePutMessageOptionsUsed: "false"
+    MqNativeReplyType: "REPLY_NONE"
+  annotations:
+  - type: "@bundle-hints"
+    id: "650a44894bb5d14a6cfd2b061e22225b"

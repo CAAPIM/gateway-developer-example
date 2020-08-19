@@ -1,0 +1,10 @@
+clusterproperty-folder/clusterproperty-service:
+  url: "/property"
+  policy: "clusterproperty-folder/clusterproperty-policy"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

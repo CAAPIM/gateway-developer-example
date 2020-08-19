@@ -1,0 +1,8 @@
+Test Identity Provider:
+  type: "FEDERATED"
+  properties:
+    enableCredentialType.saml: false
+    enableCredentialType.x509: true
+  annotations:
+  - type: "@bundle-hints"
+    id: "650a44894bb5d14a6cfd2b061e2220e5"

@@ -1,0 +1,10 @@
+cassandra-folder/cassandra-service:
+  url: "/cassandra"
+  policy: "cassandra-folder/cassandra-policy"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

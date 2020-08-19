@@ -1,0 +1,21 @@
+http2TestClient:
+  description: ""
+  entityClassName: "com.l7tech.external.assertions.http2.routing.model.Http2ClientConfigurationEntity"
+  valueXml: |
+    <?xml version="1.0" encoding="UTF-8"?>
+    <java version="1.8.0_242" class="java.beans.XMLDecoder">
+     <object class="com.l7tech.external.assertions.http2.routing.model.Http2ClientConfigurationEntity">
+      <void property="description">
+       <string></string>
+      </void>
+      <void property="name">
+       <string>http2TestClient</string>
+      </void>
+      <void property="valueXml">
+       <string></string>
+      </void>
+     </object>
+    </java>
+  annotations:
+  - type: "@bundle-hints"
+    id: "425cdbc538217411656ef4481f0da28c"

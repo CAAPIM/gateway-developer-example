@@ -1,0 +1,14 @@
+certificate/Certificate Example:
+  url: "/cert_demo"
+  policy: "certificate/Certificate Example"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false
+  annotations:
+  - "@bundle"
+  - type : "@bundle-hints"
+    name: "service-annotations"

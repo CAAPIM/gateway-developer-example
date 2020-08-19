@@ -1,0 +1,10 @@
+jdbcconnection-folder/jdbcconnection-service:
+  url: "/jdbc"
+  policy: "jdbcconnection-folder/jdbcconnection-policy"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

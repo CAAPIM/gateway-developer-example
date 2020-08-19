@@ -1,0 +1,9 @@
+jdbcconnection-folder/jdbcconnection-policy:
+  type:
+  tag:
+  subtag:
+  hasRouting: true
+  usedEntities:
+  - type: "JDBC_CONNECTION"
+    name: "mysql"
+  annotations:

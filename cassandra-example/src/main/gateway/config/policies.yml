@@ -1,0 +1,9 @@
+cassandra-folder/cassandra-policy:
+  type:
+  tag:
+  subtag:
+  hasRouting: true
+  usedEntities:
+  - type: "CASSANDRA_CONFIGURATION"
+    name: "cassandraTestConnection"
+  annotations:

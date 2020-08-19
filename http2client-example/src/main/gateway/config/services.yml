@@ -1,0 +1,10 @@
+http2client-folder/http2client-service:
+  url: "/http2"
+  policy: "http2client-folder/http2client-policy"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

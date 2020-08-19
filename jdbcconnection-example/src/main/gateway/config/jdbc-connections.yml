@@ -1,0 +1,11 @@
+mysql:
+  driverClass: "com.mysql.jdbc.Driver"
+  jdbcUrl: "jdbc:l7tech:mysql://localhost:3306"
+  properties:
+    EnableCancelTimeout: "true"
+  user: "root"
+  minimumPoolSize: 3
+  maximumPoolSize: 15
+  annotations:
+  - type: "@bundle-hints"
+    id: "650a44894bb5d14a6cfd2b061e22205c"

@@ -1,0 +1,11 @@
+http2client-folder/http2client-policy:
+  type:
+  tag:
+  subtag:
+  hasRouting: false
+  usedEntities:
+  - type: "SSG_KEY_ENTRY"
+    name: "apim_autotest_ssl"
+  - type: "GENERIC"
+    name: "http2TestClient"
+  annotations:

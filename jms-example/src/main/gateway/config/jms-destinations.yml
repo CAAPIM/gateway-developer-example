@@ -1,0 +1,15 @@
+jmsDestination:
+  initialContextFactoryClassName: "testClass"
+  jndiUrl: "jndi:test"
+  destinationType: "QUEUE"
+  connectionFactoryName: "queue factory"
+  destinationName: "test"
+  outboundDetail:
+    replyType: "AUTOMATIC"
+    useRequestCorrelationId: false
+    messageFormat: "AUTOMATIC"
+    poolingType: "SESSION"
+    template: false
+  annotations:
+  - type: "@bundle-hints"
+    id: "650a44894bb5d14a6cfd2b061e22218c"

@@ -1,0 +1,11 @@
+password-folder/password-policy:
+  type:
+  tag:
+  subtag:
+  hasRouting: true
+  usedEntities:
+  - type: "JDBC_CONNECTION"
+    name: "mysqlWithCredentials"
+  - type: "SECURE_PASSWORD"
+    name: "jdbc_con_pass"
+  annotations:

@@ -1,0 +1,8 @@
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
+    <wsp:All wsp:Usage="Required">
+        <L7p:Http2Routing>
+            <L7p:Http2ClientConfigName stringValue="http2TestClient"/>
+            <L7p:ProtectedServiceUrl stringValue="http://example.com"/>
+        </L7p:Http2Routing>
+    </wsp:All>
+</wsp:Policy>

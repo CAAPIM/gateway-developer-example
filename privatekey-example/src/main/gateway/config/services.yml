@@ -1,0 +1,10 @@
+privatekey-folder/privatekey-service:
+  url: "/privatekey"
+  policy: "privatekey-folder/privatekey-policy"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

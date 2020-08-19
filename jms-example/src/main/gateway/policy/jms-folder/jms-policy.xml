@@ -1,0 +1,13 @@
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy" xmlns:L7p="http://www.layer7tech.com/ws/policy">
+    <wsp:All wsp:Usage="Required">
+        <L7p:JmsRoutingAssertion>
+            <L7p:EndpointName stringValue="jmsDestination"/>
+            <L7p:RequestJmsMessagePropertyRuleSet jmsMessagePropertyRuleSet="included">
+                <L7p:Rules jmsMessagePropertyRuleArray="included"/>
+            </L7p:RequestJmsMessagePropertyRuleSet>
+            <L7p:ResponseJmsMessagePropertyRuleSet jmsMessagePropertyRuleSet="included">
+                <L7p:Rules jmsMessagePropertyRuleArray="included"/>
+            </L7p:ResponseJmsMessagePropertyRuleSet>
+        </L7p:JmsRoutingAssertion>
+    </wsp:All>
+</wsp:Policy>

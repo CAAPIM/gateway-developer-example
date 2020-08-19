@@ -1,0 +1,11 @@
+certificate/Certificate Example:
+  type:
+  tag:
+  subtag:
+  hasRouting: true
+  usedEntities:
+  - type: "SSG_KEY_ENTRY"
+    name: "SSL"
+  - type: "TRUSTED_CERT"
+    name: "www.google.com"
+  annotations:

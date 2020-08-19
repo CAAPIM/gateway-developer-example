@@ -1,0 +1,10 @@
+mqnative-folder/mqnative-service:
+  url: "/mqnative"
+  policy: "mqnative-folder/mqnative-policy"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

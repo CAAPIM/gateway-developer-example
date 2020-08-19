@@ -1,0 +1,9 @@
+privatekey-folder/privatekey-policy:
+  type:
+  tag:
+  subtag:
+  hasRouting: true
+  usedEntities:
+  - type: "SSG_KEY_ENTRY"
+    name: "test"
+  annotations:

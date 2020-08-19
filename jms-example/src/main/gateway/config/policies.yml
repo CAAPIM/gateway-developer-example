@@ -1,0 +1,9 @@
+jms-folder/jms-policy:
+  type:
+  tag:
+  subtag:
+  hasRouting: true
+  usedEntities:
+  - type: "JMS_ENDPOINT"
+    name: "jmsDestination"
+  annotations:

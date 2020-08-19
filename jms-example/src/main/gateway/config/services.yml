@@ -1,0 +1,10 @@
+jms-folder/jms-service:
+  url: "/jms"
+  policy: "jms-folder/jms-policy"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false

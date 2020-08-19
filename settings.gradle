@@ -15,3 +15,14 @@ include 'common-services',
         'service-metrics',
         'encass-annotations',
         'deployment'
+include 'service-annotations'
+include 'clusterproperty-example'
+include 'jdbcconnection-example'
+include 'idprovider-example'
+include 'jms-example'
+include 'cassandra-example'
+include 'mqnative-example'
+include 'http2client-example'
+include 'password-example'
+include 'privatekey-example'
+
