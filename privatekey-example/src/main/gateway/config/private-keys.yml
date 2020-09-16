@@ -1,3 +1,4 @@
 test:
   keystore: "Software DB"
   algorithm: "RSA"
+  keyPassword: "7layer"
