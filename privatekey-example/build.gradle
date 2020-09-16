@@ -25,6 +25,7 @@ repositories {
 EnvironmentConfig{
     name="privateKeyExample"
     map=[
-            "PRIVATE_KEY.test": file("./src/main/gateway/config/private-keys.yml")
+            "PRIVATE_KEY.test": file("./src/main/gateway/config/private-keys.yml"),
+            "PRIVATE_KEY_FILE.test.p12": file("./src/main/gateway/config/privateKeys/test.p12")
     ]
 }
