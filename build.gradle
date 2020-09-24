@@ -13,14 +13,14 @@ buildscript {
     }
     dependencies {
         // "+" will always pull the latest available
-        classpath "com.ca.apim.gateway:gateway-developer-plugin:0.10.+"
+        classpath "com.ca.apim.gateway:gateway-policy-plugin:0.10.+"
         classpath "com.ca.apim.gateway:gateway-export-plugin:0.10.+"
         classpath "com.ca.apim.gateway:gateway-import-plugin:0.10.+"
     }
 }
 
 subprojects {
-    apply plugin: 'com.ca.apim.gateway.gateway-developer-plugin'
+    apply plugin: 'com.ca.apim.gateway.gateway-policy-plugin'
     if (!project.name.equals('deployment')) {
         apply plugin: 'com.ca.apim.gateway.gateway-export-plugin'
         GatewayConnection {
