@@ -13,9 +13,9 @@ buildscript {
     }
     dependencies {
         // "+" will always pull the latest available
-        classpath "com.ca.apim.gateway:gateway-policy-plugin:0.10.+"
-        classpath "com.ca.apim.gateway:gateway-export-plugin:0.10.+"
-        classpath "com.ca.apim.gateway:gateway-import-plugin:0.10.+"
+        classpath "com.ca.apim.gateway:gateway-policy-plugin:1.0.+"
+        classpath "com.ca.apim.gateway:gateway-export-plugin:1.0.+"
+        classpath "com.ca.apim.gateway:gateway-import-plugin:1.0.+"
     }
 }
 
