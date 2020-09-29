@@ -13,6 +13,20 @@ services:
       - "8000:8000"
     volumes:
       - /opt/SecureSpan/Gateway/node/default/etc/bootstrap/services/restman
+      - ./common-services/build/gateway/bundle/common-services-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/common-services-1.0.0-full.install.bundle
+      - ./business-integrations/build/gateway/bundle/business-integrations-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/business-integrations-1.0.0-full.install.bundle
+      - ./consumer-solutions/build/gateway/bundle/consumer-solutions-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/consumer-solutions-1.0.0-full.install.bundle
+      - ./global/build/gateway/bundle/global-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/global-1.0.0-full.install.bundle
+      - ./routings/build/gateway/bundle/routings-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/routings-1.0.0-full.install.bundle
+      - ./service-metrics/build/gateway/bundle/service-metrics-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/service-metrics-1.0.0-full.install.bundle
+      - ./cassandra-example/build/gateway/bundle/cassandra-example-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/cassandra-example-1.0.0-full.install.bundle
+      - ./clusterproperty-example/build/gateway/bundle/clusterproperty-example-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/clusterproperty-example-1.0.0-full.install.bundle
+      - ./encass-annotations/build/gateway/bundle/encass-annotations-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/encass-annotations-1.0.0-full.install.bundle
+      - ./idprovider-example/build/gateway/bundle/idprovider-example-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/idprovider-example-1.0.0-full.install.bundle
+      - ./jms-example/build/gateway/bundle/jms-example-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/jms-example-1.0.0-full.install.bundle
+      - ./mqnative-example/build/gateway/bundle/mqnative-example-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/mqnative-example-1.0.0-full.install.bundle
+      - ./password-example/build/gateway/bundle/password-example-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/password-example-1.0.0-full.install.bundle
+      - ./service-annotations/build/gateway/bundle/service-annotations-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/service-annotations-1.0.0-full.install.bundle
     secrets:
       - source: license
         target: /opt/SecureSpan/Gateway/node/default/etc/bootstrap/license/license.xml
