@@ -29,7 +29,7 @@ subprojects {
     } 
 
     group 'com.ca.apim.gateway'
-    version = '0.10.2'
+    version = '1.0.0'
 
     repositories {
         mavenLocal()

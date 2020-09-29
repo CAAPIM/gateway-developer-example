@@ -13,6 +13,13 @@ services:
       - "8000:8000"
     volumes:
       - /opt/SecureSpan/Gateway/node/default/etc/bootstrap/services/restman
+      - ./common-services/build/gateway/bundle/common-services-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/common-services-1.0.0-full.install.bundle
+      - ./business-integrations/build/gateway/bundle/business-integrations-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/business-integrations-1.0.0-full.install.bundle
+      - ./consumer-solutions/build/gateway/bundle/consumer-solutions-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/consumer-solutions-1.0.0-full.install.bundle
+      #- ./audit/build/gateway/bundle/audit-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/audit-1.0.0-full.install.bundle
+      - ./global/build/gateway/bundle/global-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/global-1.0.0-full.install.bundle
+      - ./routings/build/gateway/bundle/routings-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/routings-1.0.0-full.install.bundle
+      - ./service-metrics/build/gateway/bundle/service-metrics-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/service-metrics-1.0.0-full.install.bundle
     secrets:
       - source: license
         target: /opt/SecureSpan/Gateway/node/default/etc/bootstrap/license/license.xml
