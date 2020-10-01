@@ -1,5 +1,5 @@
 # About
-This is an example repository that demonstrates how to use [API Gateway Policy Plugin](https://techdocs.broadcom.com/content/broadcom/techdocs/us/en/ca-enterprise-software/layer7-api-management/gateway-policy-plugin/1-0.html)
+This is an example repository that demonstrates how to use [API Gateway Policy Plugin.](https://techdocs.broadcom.com/content/broadcom/techdocs/us/en/ca-enterprise-software/layer7-api-management/gateway-policy-plugin/1-0.html)
 
 <!---
 
