@@ -1,4 +1,9 @@
 # About
+This is an example repository that demonstrates how to use [API Gateway Policy Plugin](https://techdocs.broadcom.com/content/broadcom/techdocs/us/en/ca-enterprise-software/layer7-api-management/gateway-policy-plugin/1-0.html)
+
+<!---
+
+# About
 This is an example repository that demonstrates how to use the [CA API Gateway Developer Plugin][gateway-developer-plugin].
 
 # Getting Started
@@ -39,3 +44,4 @@ of the MIT license. See the [LICENSE][license-link] file for details.
  [license-link]: /LICENSE
  [contributing]: /CONTRIBUTING.md
  [gateway-developer-plugin]: https://github.com/ca-api-gateway/gateway-developer-plugin
+--->
