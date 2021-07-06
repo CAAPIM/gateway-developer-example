@@ -4,7 +4,7 @@ version = '1.0.0'
 
 GatewaySourceConfig {
     EnvironmentConfig {
-        name = "jdbcExample"
+        name = "SNAPSHOT"
         map = [
                 "JDBC_CONNECTION": file("./src/main/gateway/config/jdbc-connections.yml")
         ]

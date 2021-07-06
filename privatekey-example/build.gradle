@@ -4,7 +4,7 @@ version = '1.0.0'
 
 GatewaySourceConfig {
     EnvironmentConfig {
-        name="privateKeyExample"
+        name="RELEASE"
         map = [
                 "PRIVATE_KEY.test": file("./src/main/gateway/config/private-keys.yml"),
                 "PRIVATE_KEY_FILE.test.p12": file("./src/main/gateway/config/privateKeys/test.p12")

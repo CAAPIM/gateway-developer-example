@@ -4,7 +4,7 @@ version = '1.0.0'
 
 GatewaySourceConfig {
     EnvironmentConfig {
-        name = "mqnativeExample"
+        name = "RELEASE"
         map = [
                 "SSG_ACTIVE_CONNECTOR": file("./src/main/gateway/config/active-connectors.yml")
         ]

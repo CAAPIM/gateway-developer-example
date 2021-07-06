@@ -4,7 +4,7 @@ version = '1.0.0'
 
 GatewaySourceConfig {
     EnvironmentConfig {
-        name = "http2clientExample"
+        name = "SNAPSHOT"
         map = [
                 "GENERIC": file("./src/main/gateway/config/generic-entities.yml")
         ]

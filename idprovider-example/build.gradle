@@ -4,7 +4,7 @@ version = '1.0.0'
 
 GatewaySourceConfig {
     EnvironmentConfig {
-        name = "idproviderExample"
+        name = "SNAPSHOT"
         map = [
                 "IDENTITY_PROVIDER": file("./src/main/gateway/config/identity-providers.yml")
         ]

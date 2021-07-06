@@ -1,7 +1,6 @@
 
 GatewaySourceConfig {
     EnvironmentConfig {
-        name = "CertificateExample"
         map = [
                 "CERTIFICATE.www.google.com":file("./src/main/gateway/config/trusted-certs.yml"),
                "CERTIFICATE_FILE.www.google.com.pem":file("./src/main/gateway/config/certificates/www.google.com.pem")

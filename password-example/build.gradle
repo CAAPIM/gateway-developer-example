@@ -4,7 +4,7 @@ version = '1.0.0'
 
 GatewaySourceConfig {
     EnvironmentConfig{
-        name="passwordExample"
+        name="SNAPSHOT"
         map=[
                 "PASSWORD.jdbc_con_pass": file("./src/main/gateway/config/stored-passwords.properties")
         ]

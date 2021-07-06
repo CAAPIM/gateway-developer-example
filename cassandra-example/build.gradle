@@ -4,7 +4,7 @@ version = '1.0.0'
 
 GatewaySourceConfig {
     EnvironmentConfig {
-        name = "cassandraExample"
+        name = "SNAPSHOT"
         map = [
                 "CASSANDRA_CONNECTION": file("./src/main/gateway/config/cassandra-connections.yml")
         ]
