@@ -1,30 +1,12 @@
-buildscript {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        jcenter()
-    }
-    dependencies {
-        classpath "com.ca.apim.gateway:config-builder:1.0.+"
-        classpath "com.ca.apim.gateway:environment-creator-application:1.0.+"
-        classpath "com.ca.apim.gateway:gateway-policy-plugin:1.0.+"
-        classpath "com.ca.apim.gateway:gateway-export-plugin:1.0.+"
-    }
-}
 
-apply plugin: 'com.ca.apim.gateway.gateway-export-plugin'
-apply plugin: 'com.ca.apim.gateway.gateway-policy-plugin'
 group = "clusterproperty"
 version = '1.0.0'
-repositories {
-    gradlePluginPortal()
-    mavenCentral()
-    jcenter()
-}
 
-EnvironmentConfig{
-    name="clusterPropertyExample"
-    map=[
-            "PROPERTY": file("./src/main/gateway/config/global-env.properties")
-    ]
+GatewaySourceConfig {
+    EnvironmentConfig {
+        name = "clusterPropertyExample"
+        map = [
+                "PROPERTY": file("./src/main/gateway/config/global-env.properties")
+        ]
+    }
 }

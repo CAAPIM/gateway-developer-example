@@ -1,29 +1,10 @@
-buildscript {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        jcenter()
-    }
-    dependencies {
-        classpath "com.ca.apim.gateway:config-builder:1.0.+"
-        classpath "com.ca.apim.gateway:environment-creator-application:1.0.+"
-        classpath "com.ca.apim.gateway:gateway-policy-plugin:1.0.+"
-        classpath "com.ca.apim.gateway:gateway-export-plugin:1.0.+"
+
+GatewaySourceConfig {
+    EnvironmentConfig {
+        name = "CertificateExample"
+        map = [
+                "CERTIFICATE.www.google.com":file("./src/main/gateway/config/trusted-certs.yml"),
+               "CERTIFICATE_FILE.www.google.com.pem":file("./src/main/gateway/config/certificates/www.google.com.pem")
+        ]
     }
 }
-
-apply plugin: 'com.ca.apim.gateway.gateway-export-plugin'
-apply plugin: 'com.ca.apim.gateway.gateway-policy-plugin'
-group = "service"
-version = '1.0.0'
-repositories {
-    gradlePluginPortal()
-    mavenCentral()
-    jcenter()
-}
-EnvironmentConfig{
-    name="CertificateExample"
-    map = ["CERTIFICATE.www.google.com":file("./src/main/gateway/config/trusted-certs.yml"),
-           "CERTIFICATE_FILE.www.google.com.pem":file("./src/main/gateway/config/certificates/www.google.com.pem")]
-}
-
